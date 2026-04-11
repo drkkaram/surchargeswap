@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SurchargeSwap
+
+Free surcharge ban impact calculator for Australian businesses.
+
+## What is this?
+
+The RBA bans card surcharges for Visa, Mastercard and eftpos on **1 October 2026**. SurchargeSwap helps 436,000 affected businesses calculate their monthly dollar impact, compare payment processors, and plan their response.
+
+## Features
+
+- **Impact Calculator** — enter your revenue, card mix, surcharge rate, and MSF to see your exact monthly and annual impact
+- **Processor Comparison** — compare Tyro, Zeller, Stripe, Pin Payments, and Square ranked by lowest cost
+- **Repricing Analysis** — calculate the menu price increase needed to maintain margins
+- **Amex Carve-out** — shows recoverable surcharge revenue from exempt Amex transactions
+- **BNPL Analysis** — toggleable BNPL cost inclusion (Afterpay/Zip are exempt from the ban)
+- **Interchange Module** — explains the RBA interchange reduction and which pricing models benefit
+- **PDF Reports** — generate and email a full analysis report via Resend
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript (strict mode)
+- Tailwind CSS v4
+- shadcn/ui
+- React Hook Form + Zod
+- jsPDF (client-side PDF)
+- Resend (email delivery)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cp .env.example .env.local
+# Add your Resend API key to .env.local
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Description |
+|---|---|---|
+| `RESEND_API_KEY` | Yes | Resend API key for email delivery |
+| `EMAIL_FROM` | No | Custom from address (must be verified in Resend) |
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Designed for Vercel free tier:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All rights reserved. © 2026 SurchargeSwap.
