@@ -5,6 +5,31 @@ import { formatCurrency } from "@/lib/calculator";
 
 export const dynamic = "force-dynamic";
 
+// Simple in-memory rate limiter: max 3 requests per IP per 60 seconds
+const ipRequestMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 3;
+const RATE_WINDOW_MS = 60_000;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = ipRequestMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    ipRequestMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT) return false;
+  entry.count++;
+  return true;
+}
+
+function pruneRateLimitMap() {
+  if (ipRequestMap.size < 500) return;
+  const now = Date.now();
+  for (const [key, val] of ipRequestMap) {
+    if (now > val.resetAt) ipRequestMap.delete(key);
+  }
+}
+
 const requestSchema = z.object({
   email: z.string().email("Invalid email address"),
   reportData: z.object({
@@ -64,6 +89,19 @@ function getResendClient(): Resend {
 
 export async function POST(request: Request) {
   try {
+    // Prune stale rate limit entries to prevent memory leaks
+    pruneRateLimitMap();
+
+    // Rate limiting
+    const forwarded = request.headers.get("x-forwarded-for");
+    const ip = forwarded ? forwarded.split(",")[0].trim() : "unknown";
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json(
+        { success: false, error: "Too many requests. Please try again in a minute." },
+        { status: 429 }
+      );
+    }
+
     const body: unknown = await request.json();
     const parsed = requestSchema.safeParse(body);
 
@@ -78,31 +116,64 @@ export async function POST(request: Request) {
 
     const subject = `Your SurchargeSwap Report — estimated impact ${formatCurrency(reportData.netMonthlyImpact)}/month`;
 
+    const top3 = reportData.processorComparison.slice(0, 3);
+    const processorLines = top3.map((c, i) => {
+      const saving = c.monthlySaving > 0 ? ` — saves ${formatCurrency(c.monthlySaving)}/mo` : "";
+      const lockIn = c.processor.contract.toLowerCase().includes("12 month") ? " [12-month lock-in]" : "";
+      return `  ${i + 1}. ${c.processor.name} (~${(c.processor.rate * 100).toFixed(1)}%${lockIn})${saving}`;
+    }).join("\n");
+
     const textBody = [
-      "Your SurchargeSwap Report",
-      "========================",
+      "YOUR SURCHARGESWAP ANALYSIS",
+      "===========================",
       "",
+      `Prepared for: ${email}`,
       `Monthly card revenue: ${formatCurrency(reportData.inputs.monthlyCardRevenue)}`,
-      `Card mix: Visa/MC ${reportData.inputs.visaMastercardPct}% | eftpos ${reportData.inputs.eftposPct}% | Amex ${reportData.inputs.amexPct}% | BNPL ${reportData.inputs.bnplPct}%`,
-      `Surcharge rate: ${reportData.inputs.currentSurchargePct}%`,
-      `MSF rate: ${reportData.inputs.currentMsfPct}%`,
       "",
-      "MONTHLY IMPACT",
-      `Surcharge revenue lost: -${formatCurrency(reportData.surchargeRevenueLost)}`,
-      `Net monthly hit: -${formatCurrency(reportData.netMonthlyImpact)}`,
+      "EXECUTIVE SUMMARY",
+      `-----------------`,
+      `From 1 October 2026, your estimated monthly hit: -${formatCurrency(reportData.netMonthlyImpact)}`,
       `Annual equivalent: -${formatCurrency(reportData.annualImpact)}`,
       "",
-      "AMEX (EXEMPT)",
-      `Amex revenue: ${formatCurrency(reportData.amexRevenue)}/mo`,
-      `Recoverable surcharge: ${formatCurrency(reportData.amexSurchargeRecovery)}/mo`,
+      "TOP 3 PROCESSOR OPTIONS (ranked by savings)",
+      "--------------------------------------------",
+      processorLines,
       "",
-      `Interchange saving (cost-plus): ${formatCurrency(reportData.interchangeSaving)}/mo`,
+      "AMEX — STILL PERMITTED",
+      "----------------------",
+      `You can continue surcharging Amex after October 2026.`,
+      `Your recoverable Amex surcharge: ${formatCurrency(reportData.amexSurchargeRecovery)}/mo`,
+      `(Based on ${formatCurrency(reportData.amexRevenue)}/mo Amex revenue at ${reportData.inputs.currentSurchargePct}% surcharge)`,
       "",
-      "See the attached PDF for full processor comparison and repricing analysis.",
+      "YOUR 3-PHASE SWITCHOVER CHECKLIST",
+      "----------------------------------",
+      "PHASE 1 — Research (Do this week)",
+      "  [ ] Confirm your current MSF rate on your latest merchant statement",
+      "  [ ] Check your POS provider supports selective surcharging by card network",
+      "  [ ] Request quotes from top 2 processors above",
+      "",
+      "PHASE 2 — Application (4–6 weeks out from switch)",
+      "  [ ] Submit merchant application to chosen processor",
+      "  [ ] Arrange terminal delivery / software setup",
+      "  [ ] Brief your accountant on the effective date and cost impact",
+      "  [ ] Test new terminal in a low-risk period",
+      "",
+      "PHASE 3 — Go Live (before 1 October 2026)",
+      "  [ ] Update POS surcharging settings (remove Visa/MC/eftpos surcharge)",
+      "  [ ] Keep Amex surcharge active if applicable",
+      "  [ ] Train staff on new payment flow",
+      "  [ ] Monitor first merchant statement to confirm new rates are applied",
+      "",
+      "INTERCHANGE SAVING OPPORTUNITY",
+      "-------------------------------",
+      `Switching to cost-plus/interchange-plus pricing could save an additional`,
+      `${formatCurrency(reportData.interchangeSaving)}/mo on Visa/Mastercard transactions.`,
+      `Ask your new processor about interchange-plus pricing when applying.`,
       "",
       "---",
-      "SurchargeSwap — surchargeswap.com.au",
-      "Not financial advice. Indicative rates only.",
+      "Generated by SurchargeSwap — surchargeswap.com.au",
+      "Not financial advice. Estimates based on your inputs. Verify rates with your processor.",
+      "The attached PDF contains your full processor comparison table.",
     ].join("\n");
 
     let resend: Resend;
@@ -137,6 +208,55 @@ export async function POST(request: Request) {
         { success: false, error: "Failed to send email" },
         { status: 500 }
       );
+    }
+
+    // Add to Resend Contacts audience
+    const audienceId = process.env.RESEND_AUDIENCE_ID;
+    if (audienceId) {
+      try {
+        await resend.contacts.create({
+          audienceId,
+          email,
+          unsubscribed: false,
+        });
+      } catch (contactErr) {
+        console.error("Resend contact create failed:", contactErr);
+      }
+    }
+
+    // PostHog: track email capture with anonymised business profile
+    const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+    if (posthogKey) {
+      try {
+        const { PostHog } = await import("posthog-node");
+        const ph = new PostHog(posthogKey, {
+          host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://app.posthog.com",
+          flushAt: 1,
+          flushInterval: 0,
+        });
+        const rev = reportData.inputs.monthlyCardRevenue;
+        const revBracket =
+          rev < 25000 ? "under-25k" :
+          rev < 50000 ? "25k-50k" :
+          rev < 100000 ? "50k-100k" :
+          rev < 250000 ? "100k-250k" : "over-250k";
+        ph.capture({
+          distinctId: email,
+          event: "email_captured",
+          properties: {
+            revenue_bracket: revBracket,
+            net_monthly_impact: Math.round(reportData.netMonthlyImpact),
+            annual_impact: Math.round(reportData.annualImpact),
+            top_processor: reportData.processorComparison[0]?.processor.id ?? "unknown",
+            top_processor_saving: Math.round(reportData.processorComparison[0]?.monthlySaving ?? 0),
+            msf_pct: reportData.inputs.currentMsfPct,
+            surcharge_pct: reportData.inputs.currentSurchargePct,
+          },
+        });
+        await ph.shutdown();
+      } catch (phErr) {
+        console.error("PostHog email_captured event failed:", phErr);
+      }
     }
 
     return NextResponse.json({ success: true });

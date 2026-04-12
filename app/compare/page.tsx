@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PROCESSORS } from "@/lib/calculator";
+import { PROCESSORS, RATES_VERIFIED_DATE } from "@/lib/calculator";
 
 export const metadata: Metadata = {
   title: 'Cheapest Payment Processors Australia 2026 — Ranked by Monthly Cost | SurchargeSwap',
@@ -12,6 +12,20 @@ export const metadata: Metadata = {
     siteName: 'SurchargeSwap',
     locale: 'en_AU',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'SurchargeSwap — Cheapest Payment Processors Australia 2026',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cheapest Payment Processors Australia 2026 — SurchargeSwap',
+    description: 'Zeller 1.4%, Tyro ~1.2%, Square 1.6%. Ranked for AU hospitality preparing for the 1 October 2026 RBA surcharge ban.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: 'https://surchargeswap.com.au/compare',
@@ -42,8 +56,8 @@ const processorListJsonLd = {
     {
       '@type': 'ListItem',
       position: 3,
-      name: 'Stripe',
-      description: '1.5% flat rate, no monthly fee, no lock-in.',
+      name: 'Stripe (in-store)',
+      description: '1.5% flat rate, no monthly fee, no lock-in. Best for online + in-store hybrid.',
       url: 'https://surchargeswap.com.au/compare#stripe',
     },
     {
@@ -102,13 +116,13 @@ export default function ComparePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(processorListJsonLd) }}
       />
       {/* Affiliate disclosure */}
-      <div className="border-b border-amber-200 bg-amber-50/50">
+      <div className="border-b border-amber-300 bg-amber-50">
         <div className="mx-auto max-w-5xl px-6 py-3">
-          <p className="text-xs leading-relaxed text-[#525252]">
+          <p className="text-sm leading-relaxed text-[#525252]">
             <strong className="text-[#0A0A0A]">Affiliate disclosure:</strong>{" "}
             We may earn a referral commission if you switch via our links.
             Rankings are based on lowest cost for average AU hospitality volume.
-            Rates verified April 2026.
+            Rates verified {RATES_VERIFIED_DATE}.
           </p>
         </div>
       </div>
@@ -123,6 +137,9 @@ export default function ComparePage() {
           RBA surcharge ban on 1 October 2026.
         </p>
         <p className="mt-2 text-sm text-[#525252]">
+          Post-ban, this comparison helps you find the lowest-cost processor to minimise what the ban costs you long-term.
+        </p>
+        <p className="mt-2 text-sm text-[#525252]">
           Want to see costs based on your actual revenue?{" "}
           <Link
             href="/"
@@ -131,6 +148,7 @@ export default function ComparePage() {
             Use the calculator &rarr;
           </Link>
         </p>
+        <p className="mt-2 text-xs text-[#525252]">Rates last verified: {RATES_VERIFIED_DATE}. Check processor websites for current rates before signing.</p>
 
         <div className="mt-10 space-y-6">
           {PROCESSORS.map((processor, idx) => {
@@ -152,6 +170,11 @@ export default function ComparePage() {
                       <span className="text-sm text-[#525252]">
                         {details.rateLabel}
                       </span>
+                      {processor.id === "pin-payments" && (
+                        <span className="rounded-sm border border-amber-300 bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700">
+                          Online only — no physical terminal
+                        </span>
+                      )}
                     </div>
 
                     <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -194,10 +217,13 @@ export default function ComparePage() {
                     <p className="mt-3 text-sm text-[#525252]">
                       Best for: {processor.bestFor}
                     </p>
+                    <p className="mt-1 text-xs text-[#525252]">Rates verified: {processor.lastVerified}</p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
                       <a
-                        href={processor.affiliateHref}
+                        href={`/out/${processor.id}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
                       >
                         Switch to {processor.name} &rarr;
@@ -228,6 +254,7 @@ export default function ComparePage() {
             on credit cards), while flat-rate processors may not adjust unless
             they choose to lower their published rate.
           </p>
+          <p className="mt-2 text-xs text-[#525252]">Source: RBA Payments System Board Conclusions Paper (March 2026). Interchange cap: credit cards reduced to 0.3%, effective 1 October 2026.</p>
           <p className="mt-2 text-sm leading-relaxed text-[#525252]">
             Not financial advice. Indicative rates only. Verify with your
             processor before making decisions.

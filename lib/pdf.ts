@@ -93,6 +93,35 @@ export function generateReportPdf(result: CalculatorResult): string {
   }
   addGap(4);
 
+  addLine("YOUR 3-PHASE ACTION PLAN", 12, true);
+  addGap(2);
+
+  addLine("PHASE 1 — Research (Do this week)", 10, true);
+  addLine("[ ] Confirm your current MSF rate on your latest merchant statement");
+  addLine("[ ] Check your POS supports selective surcharging by card network");
+  addLine("[ ] Request quotes from the top 2 processors above");
+  addGap(4);
+
+  addLine("PHASE 2 — Application (4–6 weeks out)", 10, true);
+  addLine("[ ] Submit merchant application to chosen processor");
+  addLine("[ ] Arrange terminal delivery and software setup");
+  addLine("[ ] Brief your accountant on the effective date and cost impact");
+  addLine("[ ] Test new terminal in a low-risk period");
+  addGap(4);
+
+  addLine("PHASE 3 — Go Live (before 1 October 2026)", 10, true);
+  addLine("[ ] Update POS surcharging settings (remove Visa/MC/eftpos surcharge)");
+  addLine("[ ] Keep Amex surcharge active if applicable");
+  addLine("[ ] Train staff on new payment flow");
+  addLine("[ ] Monitor first merchant statement to confirm new rates");
+  addGap(4);
+
+  addLine("AMEX REMINDER", 10, true);
+  addLine(
+    `You can continue surcharging Amex after October 2026. Recoverable: ${formatCurrency(result.amexSurchargeRecovery)}/mo`
+  );
+  addGap(4);
+
   addLine("REPRICING ANALYSIS", 12, true);
   addGap(2);
   addLine(

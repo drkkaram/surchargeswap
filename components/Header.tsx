@@ -7,7 +7,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="border-b border-[#E5E5E5] bg-white">
+    <header className="sticky top-0 z-50 border-b border-[#E5E5E5] bg-white">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link
           href="/"
@@ -36,16 +36,16 @@ export function Header() {
             Guide
           </Link>
           <Link
-            href="/"
+            href="/#calculator"
             className="rounded-md bg-[#0EA5E9] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
           >
-            Calculate now &rarr;
+            Calculate now →
           </Link>
         </nav>
 
         <button
           type="button"
-          className="flex flex-col gap-1 md:hidden"
+          className="flex flex-col gap-1 p-2 -mr-2 md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -86,11 +86,11 @@ export function Header() {
               Guide
             </Link>
             <Link
-              href="/"
+              href="/#calculator"
               className="inline-block rounded-md bg-[#0EA5E9] px-4 py-2 text-center text-sm font-medium text-white"
               onClick={() => setMobileOpen(false)}
             >
-              Calculate now &rarr;
+              Calculate now →
             </Link>
           </nav>
         </div>

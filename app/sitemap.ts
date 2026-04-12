@@ -34,5 +34,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.2,
     },
+    {
+      url: `${baseUrl}/enforcement-faq`,
+      lastModified: new Date('2026-04-12'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date('2026-04-12'),
+      changeFrequency: 'yearly' as const,
+      priority: 0.2,
+    },
+    {
+      url: `${baseUrl}/cafe`,
+      lastModified: new Date('2026-04-12'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/restaurant`,
+      lastModified: new Date('2026-04-12'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/retail`,
+      lastModified: new Date('2026-04-12'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 }

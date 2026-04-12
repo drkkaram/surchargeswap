@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/enforcement-faq'],
+      disallow: ['/api/'],
     },
     sitemap: 'https://surchargeswap.com.au/sitemap.xml',
   }

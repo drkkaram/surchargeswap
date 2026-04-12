@@ -12,10 +12,10 @@ export function ProcessorCard({ comparison }: ProcessorCardProps) {
   const isPositiveSaving = monthlySaving > 0;
 
   return (
-    <div className="border border-[#E5E5E5] bg-white p-5 rounded-sm">
+    <div className="rounded-lg border border-[#E5E5E5] bg-white p-5">
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-[#FAFAFA] font-mono text-sm font-bold text-[#525252]">
+          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#FAFAFA] font-mono text-sm font-bold text-[#525252]">
             {rank}
           </span>
           <div>
@@ -29,9 +29,14 @@ export function ProcessorCard({ comparison }: ProcessorCardProps) {
                 : processor.pricingModel}
             </p>
           </div>
+          {processor.contract.toLowerCase().includes("12 month") && (
+            <span className="rounded-md bg-[#F59E0B]/10 px-2 py-0.5 text-xs font-medium text-[#B45309]">
+              ⚠ 12-month lock-in
+            </span>
+          )}
         </div>
         {isPositiveSaving && (
-          <span className="rounded-sm bg-[#22C55E]/10 px-2 py-0.5 text-xs font-medium text-[#22C55E]">
+          <span className="rounded-md bg-[#22C55E]/10 px-2 py-0.5 text-xs font-medium text-[#22C55E]">
             Save {formatCurrency(annualSaving)}/yr
           </span>
         )}
@@ -63,12 +68,19 @@ export function ProcessorCard({ comparison }: ProcessorCardProps) {
         Best for: {processor.bestFor}
       </p>
 
-      <a
-        href={processor.affiliateHref}
-        className="mt-4 inline-block rounded-md border border-[#0EA5E9] px-4 py-2 text-sm font-medium text-[#0EA5E9] transition-colors hover:bg-[#0EA5E9] hover:text-white"
-      >
-        Switch to {processor.name} &rarr;
-      </a>
+      <div className="mt-4">
+        <a
+          href={`/out/${processor.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full rounded-md bg-[#0EA5E9] px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-[#0284C7] sm:inline-block sm:w-auto"
+        >
+          Apply for {processor.name} →
+        </a>
+        <span className="mt-1.5 block text-xs text-[#737373] sm:ml-3 sm:mt-0 sm:inline">
+          Opens {processor.name} signup
+        </span>
+      </div>
     </div>
   );
 }

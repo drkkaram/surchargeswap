@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const LAST_UPDATED = 'April 2026';
+const DATE_MODIFIED = '2026-04-12';
+
 export const metadata: Metadata = {
   title: 'RBA Surcharge Ban 2026: Complete Guide for Australian Businesses | SurchargeSwap',
   description: 'Everything Australian businesses need to know about the October 2026 RBA card surcharge ban. What\'s covered, what\'s not (Amex, BNPL), your three options, and a month-by-month action checklist.',
@@ -11,6 +14,20 @@ export const metadata: Metadata = {
     siteName: 'SurchargeSwap',
     locale: 'en_AU',
     type: 'article',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'SurchargeSwap — RBA Surcharge Ban Complete Guide for Australian Businesses',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The RBA Surcharge Ban: Complete Guide (2026)',
+    description: 'Visa, Mastercard and eftpos surcharges banned from 1 October 2026. Amex and BNPL exempt. Here\'s exactly what to do.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: 'https://surchargeswap.com.au/guide',
@@ -22,8 +39,8 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: 'The RBA Surcharge Ban: A Complete Guide for Australian Businesses (2026)',
   description: 'Everything Australian businesses need to know about the October 2026 RBA card surcharge ban — what\'s covered, what\'s not, and the three options to protect your margins.',
-  datePublished: '2026-04-12',
-  dateModified: '2026-04-12',
+  datePublished: DATE_MODIFIED,
+  dateModified: DATE_MODIFIED,
   author: {
     '@type': 'Organization',
     name: 'SurchargeSwap',
@@ -40,17 +57,31 @@ const articleJsonLd = {
   },
 };
 
+const sections = [
+  { number: '01', title: "What's actually happening", id: 'section-01' },
+  { number: '02', title: 'Who it affects', id: 'section-02' },
+  { number: '03', title: 'The Amex exception explained', id: 'section-03' },
+  { number: '04', title: 'BNPL (Afterpay, Zip) — what the ban doesn\'t cover', id: 'section-04' },
+  { number: '05', title: 'Your three options', id: 'section-05' },
+  { number: '06', title: 'How to switch payment processors — step by step', id: 'section-06' },
+  { number: '07', title: 'The interchange windfall', id: 'section-07' },
+  { number: '08', title: 'Timeline and action checklist', id: 'section-08' },
+  { number: '09', title: 'Frequently asked questions', id: 'section-09' },
+] as const;
+
 function Section({
   number,
   title,
+  id,
   children,
 }: {
   number: string;
   title: string;
+  id?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="space-y-4">
+    <section id={id} className="space-y-4">
       <div className="flex items-baseline gap-3">
         <span className="font-mono text-sm font-bold text-[#0EA5E9]">
           {number}
@@ -83,11 +114,24 @@ export default function GuidePage() {
           it doesn&apos;t, and your three options.
         </p>
         <p className="mt-4 text-sm text-[#525252]">
-          Last updated: April 2026 &middot; 12 min read
+          Last updated: {LAST_UPDATED} &middot; 12 min read
         </p>
 
-        <div className="mt-12 space-y-12">
-          <Section number="01" title="What's actually happening">
+        <div className="mt-12 lg:grid lg:grid-cols-[220px_1fr] lg:gap-12">
+          {/* TOC — desktop sticky, mobile hidden */}
+          <div className="hidden lg:block">
+            <nav className="sticky top-8 space-y-1">
+              <p className="text-xs font-medium uppercase tracking-widest text-[#525252] mb-3">Contents</p>
+              {sections.map(s => (
+                <a key={s.id} href={`#${s.id}`} className="block text-sm text-[#525252] hover:text-[#0A0A0A] py-0.5">
+                  {s.number}. {s.title}
+                </a>
+              ))}
+            </nav>
+          </div>
+          {/* Main content */}
+          <div className="space-y-12">
+          <Section number="01" title="What's actually happening" id="section-01">
             <p>
               Following the Reserve Bank of Australia&apos;s Payments System
               Review, the federal government confirmed that card payment
@@ -107,14 +151,17 @@ export default function GuidePage() {
               The ban applies to all Australian businesses accepting
               in-person and online card payments through Visa, Mastercard, and
               eftpos networks. There is no revenue threshold or small business
-              exemption.
+              exemption.{" "}
+              <span className="text-xs text-[#737373]">(RBA Conclusions Paper, March 2026)</span>
             </p>
           </Section>
 
-          <Section number="02" title="Who it affects">
+          <Section number="02" title="Who it affects" id="section-02">
             <p>
               An estimated 436,000 Australian businesses currently apply
-              surcharges to card payments. The industries most affected include:
+              surcharges to card payments{" "}
+              <span className="text-xs text-[#737373]">(RBA Payments System Board Conclusions Paper, March 2026)</span>.
+              The industries most affected include:
             </p>
             <ul className="list-inside list-disc space-y-1 pl-2">
               <li>
@@ -142,11 +189,12 @@ export default function GuidePage() {
             </p>
           </Section>
 
-          <Section number="03" title="The Amex exception explained">
+          <Section number="03" title="The Amex exception explained" id="section-03">
             <p>
               American Express is explicitly excluded from the surcharge ban.
               Businesses can continue to apply surcharges to Amex transactions
-              after 1 October 2026.
+              after 1 October 2026.{" "}
+              <span className="text-xs text-[#737373]">(As confirmed in the RBA Conclusions Paper, March 2026 — check{" "}<a href="https://www.rba.gov.au" target="_blank" rel="noopener noreferrer" className="underline">rba.gov.au</a>{" "}for updates.)</span>
             </p>
             <p>
               This exemption exists because Amex operates as a three-party
@@ -171,6 +219,7 @@ export default function GuidePage() {
           <Section
             number="04"
             title="BNPL (Afterpay, Zip) — what the ban doesn't cover"
+            id="section-04"
           >
             <p>
               Buy Now Pay Later services including Afterpay, Zip, Klarna, and
@@ -187,13 +236,22 @@ export default function GuidePage() {
             </p>
             <p>
               The RBA has flagged BNPL surcharging as an area under active
-              review. Regulatory action is possible but unlikely before 2027.
+              review. No implementation timeline has been announced as of April 2026.
               For now, BNPL costs remain a separate line item in your payment
-              cost analysis.
+              cost analysis. Check{" "}
+              <a
+                href="https://www.rba.gov.au"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+              >
+                rba.gov.au
+              </a>
+              {" "}for updates.
             </p>
           </Section>
 
-          <Section number="05" title="Your three options">
+          <Section number="05" title="Your three options" id="section-05">
             <p>
               Every business affected by the ban has three strategic choices:
             </p>
@@ -245,7 +303,7 @@ export default function GuidePage() {
             </p>
           </Section>
 
-          <Section number="06" title="How to switch payment processors — step by step">
+          <Section number="06" title="How to switch payment processors — step by step" id="section-06">
             <ol className="list-inside list-decimal space-y-2 pl-2">
               <li>
                 <strong className="text-[#0A0A0A]">
@@ -300,7 +358,7 @@ export default function GuidePage() {
             </ol>
           </Section>
 
-          <Section number="07" title="The interchange windfall">
+          <Section number="07" title="The interchange windfall" id="section-07">
             <p>
               The RBA is simultaneously reducing credit card interchange fees
               from approximately 0.80% to 0.30%. This is separate from the
@@ -334,7 +392,7 @@ export default function GuidePage() {
             </p>
           </Section>
 
-          <Section number="08" title="Timeline and action checklist">
+          <Section number="08" title="Timeline and action checklist" id="section-08">
             <div className="space-y-4 pt-2">
               <div className="border-l-2 border-[#E5E5E5] pl-4">
                 <p className="font-mono text-xs font-bold text-[#0EA5E9]">
@@ -403,7 +461,7 @@ export default function GuidePage() {
             </div>
           </Section>
 
-          <Section number="09" title="Frequently asked questions">
+          <Section number="09" title="Frequently asked questions" id="section-09">
             <div className="space-y-6 pt-2">
               {[
                 {
@@ -411,12 +469,16 @@ export default function GuidePage() {
                   a: "Yes. The ban covers all Visa, Mastercard, and eftpos transactions whether in-store or online. If you currently add a surcharge at checkout on your website, this must be removed by 1 October 2026.",
                 },
                 {
+                  q: "Does the ban cover prepaid Visa and Mastercard gift cards?",
+                  a: "Yes. The RBA confirmed the ban covers debit, prepaid, and credit cards on designated networks. Prepaid Visa and Mastercard gift cards are included. You cannot apply a surcharge to a prepaid card transaction from 1 October 2026.",
+                },
+                {
                   q: "Can I still surcharge Amex?",
                   a: "Yes. American Express is explicitly excluded from the ban. You can continue to apply surcharges to Amex transactions. Ensure your POS or payment gateway can apply surcharges selectively by card network.",
                 },
                 {
                   q: "What happens if I keep surcharging after October 2026?",
-                  a: "The ACCC will enforce the ban. Penalties for non-compliance include fines and infringement notices. Consumers can lodge complaints directly with the ACCC. See our enforcement FAQ for details.",
+                  a: <>The ACCC will enforce the ban. Penalties for non-compliance include fines and infringement notices. Consumers can lodge complaints directly with the ACCC. See our <Link href="/enforcement-faq" className="font-medium text-[#0EA5E9] hover:text-[#0284C7]">enforcement FAQ</Link> for details.</>,
                 },
                 {
                   q: "Will the ban reduce my processing fees?",
@@ -424,7 +486,7 @@ export default function GuidePage() {
                 },
                 {
                   q: "Is there a small business exemption?",
-                  a: "No. The ban applies to all businesses regardless of size or revenue. There is no threshold or exemption for small businesses.",
+                  a: "No. As confirmed in the RBA Conclusions Paper (March 2026), the ban applies to all businesses regardless of size or revenue. There is no threshold or exemption for small businesses. Check rba.gov.au for any updates before October 2026.",
                 },
                 {
                   q: "What about Afterpay and Zip surcharges?",
@@ -454,6 +516,7 @@ export default function GuidePage() {
               ))}
             </div>
           </Section>
+          </div>
         </div>
 
         <div className="mt-12 border border-[#E5E5E5] bg-white p-6 rounded-sm">

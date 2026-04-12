@@ -68,7 +68,7 @@ export default function AffiliateDisclosurePage() {
               Our commitment
             </h2>
             <p className="mt-2">
-              We built SurchargeSwap because 436,000 Australian businesses need
+              We built SurchargeSwap because 436,000 Australian businesses (RBA Payments System Board, March 2026) need
               clear, unbiased information about the surcharge ban impact. Our
               affiliate model lets us keep the tool free while maintaining
               editorial independence. We will always rank processors by actual

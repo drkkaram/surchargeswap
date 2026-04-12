@@ -21,12 +21,19 @@ export function BNPLToggle({
         <span className="mt-0.5 text-lg">&#9888;&#65039;</span>
         <div className="flex-1">
           <p className="text-sm font-semibold text-[#0A0A0A]">
-            BNPL is also exempt (for now)
+            BNPL is not covered by this ban
           </p>
           <p className="mt-1 text-sm leading-relaxed text-[#525252]">
-            Afterpay and Zip are not covered by the October 2026 ban. Your BNPL
-            volume: {formatCurrency(bnplRevenue)}/mo at ~4.5% MSF ={" "}
+            <strong>Note:</strong> This ban covers credit and debit card surcharges only.
+            Buy Now Pay Later (BNPL) services like Afterpay and Zip have separate
+            surcharge rules and are not covered by this ban.
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-[#525252]">
+            Your BNPL volume: {formatCurrency(bnplRevenue)}/mo at ~4.5% MSF (est. Afterpay/Zip; Klarna/Humm varies) ={" "}
             {formatCurrency(bnplMsfCost)}/mo ongoing cost.
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-[#525252]">
+            <strong>BNPL MSF is a pre-existing cost</strong> — most BNPL agreements already prohibit you from surcharging customers for it. Toggle it on to see your total payment cost picture.
           </p>
           <button
             type="button"

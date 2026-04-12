@@ -47,6 +47,15 @@ export interface CalculatorResult {
   annualRepriceRevenue: number;
 }
 
+// Canonical rates verification date — update this whenever processor rates are re-checked.
+// This is the single source of truth used across homepage, /compare, and processor cards.
+export const RATES_VERIFIED_DATE = "April 2026";
+
+// Staleness threshold in days — used client-side to warn if site hasn't been updated.
+export const RATES_STALE_AFTER_DAYS = 90;
+
+// Affiliate URLs — verify active program status before launch.
+// Zeller and Tyro programs confirmed April 2026. Stripe via Impact.com (pending).
 export const PROCESSORS: ProcessorData[] = [
   {
     id: "tyro",
@@ -56,9 +65,9 @@ export const PROCESSORS: ProcessorData[] = [
     terminalCost: 0,
     contract: "12 months minimum",
     bestFor: "Restaurants and cafes with high eftpos volume",
-    affiliateHref: "#affiliate-tyro",
+    affiliateHref: "https://www.tyro.com/referral-program/?utm_source=surchargeswap&utm_medium=referral&utm_campaign=processor-compare",
     pricingModel: "cost-plus",
-    lastVerified: "April 2026",
+    lastVerified: RATES_VERIFIED_DATE,
   },
   {
     id: "zeller",
@@ -68,9 +77,9 @@ export const PROCESSORS: ProcessorData[] = [
     terminalCost: 199,
     contract: "No lock-in",
     bestFor: "High-volume businesses that want simplicity",
-    affiliateHref: "#affiliate-zeller",
+    affiliateHref: "https://www.myzeller.com/affiliates?utm_source=surchargeswap&utm_medium=referral&utm_campaign=processor-compare",
     pricingModel: "flat",
-    lastVerified: "April 2026",
+    lastVerified: RATES_VERIFIED_DATE,
   },
   {
     id: "stripe",
@@ -80,9 +89,10 @@ export const PROCESSORS: ProcessorData[] = [
     terminalCost: 99,
     contract: "No lock-in",
     bestFor: "Businesses with online + in-store hybrid sales",
-    affiliateHref: "#affiliate-stripe",
+    // TODO: Replace with confirmed Stripe AU Impact.com affiliate link before launch
+    affiliateHref: "https://stripe.pxf.io/surchargeswap?utm_source=surchargeswap&utm_medium=referral&utm_campaign=processor-compare",
     pricingModel: "flat",
-    lastVerified: "April 2026",
+    lastVerified: RATES_VERIFIED_DATE,
   },
   {
     id: "pin-payments",
@@ -92,9 +102,9 @@ export const PROCESSORS: ProcessorData[] = [
     terminalCost: 0,
     contract: "No lock-in",
     bestFor: "Online businesses — no in-store terminal",
-    affiliateHref: "#affiliate-pin",
+    affiliateHref: "https://pinpayments.com/?utm_source=surchargeswap&utm_medium=referral&utm_campaign=processor-compare",
     pricingModel: "flat",
-    lastVerified: "April 2026",
+    lastVerified: RATES_VERIFIED_DATE,
   },
   {
     id: "square",
@@ -104,9 +114,9 @@ export const PROCESSORS: ProcessorData[] = [
     terminalCost: 59,
     contract: "No lock-in",
     bestFor: "Small to medium businesses, free POS ecosystem",
-    affiliateHref: "#affiliate-square",
+    affiliateHref: "https://squareup.com/au/en/affiliate?utm_source=surchargeswap&utm_medium=referral&utm_campaign=processor-compare",
     pricingModel: "flat",
-    lastVerified: "April 2026",
+    lastVerified: RATES_VERIFIED_DATE,
   },
 ];
 
@@ -116,8 +126,11 @@ export function calculateResult(inputs: CalculatorInputs): CalculatorResult {
 
   const surchargeRevenueLost =
     coveredCardRevenue * (inputs.currentSurchargePct / 100);
+  // msfToAbsorb is the total MSF paid post-ban — informational only.
+  // It was always being paid (pre-ban the surcharge offset it).
+  // The true ban impact delta is ONLY the lost surcharge income.
   const msfToAbsorb = coveredCardRevenue * (inputs.currentMsfPct / 100);
-  const netMonthlyImpact = surchargeRevenueLost;
+  const netMonthlyImpact = surchargeRevenueLost; // correct: only the lost surcharge revenue is the delta
   const annualImpact = netMonthlyImpact * 12;
 
   const amexRevenue = inputs.monthlyCardRevenue * (inputs.amexPct / 100);
@@ -141,9 +154,15 @@ export function calculateResult(inputs: CalculatorInputs): CalculatorResult {
     .sort((a, b) => b.monthlySaving - a.monthlySaving)
     .map((item, idx) => ({ ...item, rank: idx + 1 }));
 
-  const requiredPriceIncreasePct = inputs.currentMsfPct;
-  const annualRepriceRevenue =
-    inputs.monthlyCardRevenue * 12 * (requiredPriceIncreasePct / 100);
+  // Reprice: what % increase on total revenue recovers exactly the lost surcharge income?
+  // Formula: lost_surcharge / total_revenue * 100
+  // At defaults ($50k rev, 1.5% sc, 90% covered): $675 / $50,000 = 1.35%
+  const requiredPriceIncreasePct =
+    inputs.monthlyCardRevenue > 0
+      ? (surchargeRevenueLost / inputs.monthlyCardRevenue) * 100
+      : 0;
+  // Annual revenue recovered if all prices raised by requiredPriceIncreasePct
+  const annualRepriceRevenue = surchargeRevenueLost * 12;
 
   return {
     inputs,

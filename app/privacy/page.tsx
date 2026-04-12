@@ -37,8 +37,8 @@ export default function PrivacyPage() {
               If you request a PDF report, we collect your email address solely
               to deliver the report. We use Resend as our email delivery
               provider. Your email address is not added to any marketing list,
-              sold, or shared with third parties. We may send a single follow-up
-              email with additional resources relevant to the surcharge ban.
+              sold, or shared with third parties. We do not send marketing
+              emails. The only email you will receive is your requested report.
             </p>
           </div>
 

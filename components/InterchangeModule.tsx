@@ -27,11 +27,11 @@ export function InterchangeModule({
             will.
           </p>
           <p className="mt-2 text-sm leading-relaxed text-[#525252]">
-            At your volume, the interchange saving is worth ~
+            At your volume, the interchange saving is worth approximately{" "}
             <span className="font-mono font-bold text-[#0A0A0A]">
               {formatCurrency(interchangeSaving)}
             </span>
-            /month.
+            /month <span className="text-[#525252]">(est. &mdash; cost-plus pricing only; exact rate pending RBA final determination)</span>.
           </p>
           <p className="mt-2 text-sm font-medium text-[#0A0A0A]">
             Ask your processor: &ldquo;Do you use cost-plus pricing or blended
