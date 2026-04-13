@@ -17,7 +17,8 @@ export async function GET(
   { params }: { params: Promise<{ processor: string }> }
 ) {
   const { processor: processorId } = await params;
-  const proc = PROCESSORS.find((p) => p.id === processorId);
+  const normalisedId = processorId === 'pinpayments' ? 'pin-payments' : processorId;
+  const proc = PROCESSORS.find((p) => p.id === normalisedId);
 
   if (!proc) {
     return NextResponse.redirect(new URL("/compare", request.url));

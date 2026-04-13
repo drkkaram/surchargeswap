@@ -38,6 +38,11 @@ export function OutputImpact({
           </span>{" "}
           per year
         </p>
+        {totalMonthly === 0 && (
+          <p className="mt-3 text-sm font-medium text-[#22C55E]">
+            ✓ No surcharge revenue to lose — your card fees are already fully absorbed.
+          </p>
+        )}
       </div>
 
       {/* Breakdown */}

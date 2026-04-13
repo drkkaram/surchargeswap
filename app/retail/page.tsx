@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
-import { Calculator } from "@/components/Calculator";
+import { Suspense } from "react";
+import { CalculatorWithParams } from "@/components/CalculatorWithParams";
 
 export const metadata: Metadata = {
   title: "Surcharge Ban Calculator for Retail Businesses — SurchargeSwap",
   description: "Retail businesses: calculate the true cost of the October 2026 RBA surcharge ban and find the cheapest payment processor for your card volume.",
   alternates: { canonical: "https://surchargeswap.com.au/retail" },
+  openGraph: {
+    title: "Surcharge Ban Calculator for Retail — SurchargeSwap",
+    description: "Calculate the October 2026 RBA surcharge ban impact on your retail business. Find the cheapest payment processor.",
+    url: "https://surchargeswap.com.au/retail",
+    siteName: "SurchargeSwap",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surcharge Ban Calculator for Retail — SurchargeSwap",
+    description: "Calculate the October 2026 RBA surcharge ban impact on your retail business.",
+  },
 };
 
 export default function RetailPage() {
@@ -24,7 +37,9 @@ export default function RetailPage() {
           <strong>Retail tip:</strong> If you do significant online sales, compare Stripe (1.5% flat, no lock-in) against Zeller for the full picture.
         </div>
       </div>
-      <Calculator />
+      <Suspense fallback={<div className="h-96 animate-pulse rounded-lg bg-[#F5F5F5]" />}>
+        <CalculatorWithParams />
+      </Suspense>
     </main>
   );
 }

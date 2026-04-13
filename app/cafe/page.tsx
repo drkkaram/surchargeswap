@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
-import { Calculator } from "@/components/Calculator";
+import { Suspense } from "react";
+import { CalculatorWithParams } from "@/components/CalculatorWithParams";
 
 export const metadata: Metadata = {
   title: "Surcharge Ban Calculator for Cafes — SurchargeSwap",
   description: "The October 2026 RBA surcharge ban will hit cafes hard. Calculate your exact monthly impact and compare payment processors for hospitality businesses.",
   alternates: { canonical: "https://surchargeswap.com.au/cafe" },
+  openGraph: {
+    title: "Surcharge Ban Calculator for Cafes — SurchargeSwap",
+    description: "Calculate the October 2026 RBA surcharge ban impact on your cafe. Compare payment processors and protect your margins.",
+    url: "https://surchargeswap.com.au/cafe",
+    siteName: "SurchargeSwap",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surcharge Ban Calculator for Cafes — SurchargeSwap",
+    description: "Calculate the October 2026 RBA surcharge ban impact on your cafe.",
+  },
 };
 
 export default function CafePage() {
@@ -24,7 +37,9 @@ export default function CafePage() {
           <strong>Tip for cafes:</strong> Tyro&apos;s cost-plus pricing typically saves hospitality businesses the most — but factor in the 12-month lock-in before switching.
         </div>
       </div>
-      <Calculator />
+      <Suspense fallback={<div className="h-96 animate-pulse rounded-lg bg-[#F5F5F5]" />}>
+        <CalculatorWithParams />
+      </Suspense>
     </main>
   );
 }

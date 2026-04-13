@@ -88,6 +88,18 @@ export default function PrivacyPage() {
           </div>
         </div>
       </div>
+
+      <div className="mt-12 rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-6 text-center">
+        <p className="text-sm text-[#525252]">
+          Ready to calculate your surcharge ban impact?
+        </p>
+        <a
+          href="/"
+          className="mt-3 inline-block rounded-md bg-[#0A0A0A] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#525252]"
+        >
+          Use the free calculator →
+        </a>
+      </div>
     </div>
   );
 }

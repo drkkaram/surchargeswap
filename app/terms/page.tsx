@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="font-mono text-3xl font-bold tracking-tighter text-[#0A0A0A]">
+      <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
         Terms of Use
       </h1>
       <p className="mt-2 text-sm text-[#525252]">
@@ -209,6 +209,18 @@ export default function TermsPage() {
           SurchargeSwap is an independent comparison service. We are not
           affiliated with any payment processor.
         </p>
+      </div>
+
+      <div className="mt-12 rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-6 text-center">
+        <p className="text-sm text-[#525252]">
+          Ready to calculate your surcharge ban impact?
+        </p>
+        <a
+          href="/"
+          className="mt-3 inline-block rounded-md bg-[#0A0A0A] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#525252]"
+        >
+          Use the free calculator →
+        </a>
       </div>
     </div>
   );

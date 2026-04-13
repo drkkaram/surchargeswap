@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
-import { Calculator } from "@/components/Calculator";
+import { Suspense } from "react";
+import { CalculatorWithParams } from "@/components/CalculatorWithParams";
 
 export const metadata: Metadata = {
   title: "Surcharge Ban Calculator for Restaurants — SurchargeSwap",
   description: "Calculate how the October 2026 RBA surcharge ban will affect your restaurant. Find cheaper processor rates and protect your margins.",
   alternates: { canonical: "https://surchargeswap.com.au/restaurant" },
+  openGraph: {
+    title: "Surcharge Ban Calculator for Restaurants — SurchargeSwap",
+    description: "Calculate the October 2026 RBA surcharge ban impact on your restaurant. Find cheaper processor rates.",
+    url: "https://surchargeswap.com.au/restaurant",
+    siteName: "SurchargeSwap",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surcharge Ban Calculator for Restaurants — SurchargeSwap",
+    description: "Calculate the October 2026 RBA surcharge ban impact on your restaurant.",
+  },
 };
 
 export default function RestaurantPage() {
@@ -24,7 +37,9 @@ export default function RestaurantPage() {
           <strong>Restaurant note:</strong> Amex surcharging remains permitted after October 2026. Ensure your POS supports selective surcharging by card network.
         </div>
       </div>
-      <Calculator />
+      <Suspense fallback={<div className="h-96 animate-pulse rounded-lg bg-[#F5F5F5]" />}>
+        <CalculatorWithParams />
+      </Suspense>
     </main>
   );
 }
