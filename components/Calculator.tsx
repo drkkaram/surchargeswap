@@ -259,9 +259,9 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
   );
 
   const pathOptions: { value: OutputPath; label: string }[] = [
-    { value: "impact", label: "Your impact" },
-    { value: "compare", label: "Compare processors" },
-    { value: "reprice", label: "Reprice menu" },
+    { value: "impact", label: "My damage" },
+    { value: "compare", label: "Switch processor" },
+    { value: "reprice", label: "Reprice my menu" },
   ];
 
   return (
@@ -544,7 +544,31 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
           id="calculator-output"
           className="space-y-6 rounded-lg border border-[#E5E5E5] bg-white p-6 shadow-sm sm:p-8"
         >
-          {/* Active output — impact shown first, always */}
+          {/* What do you want to do — tabs ABOVE output */}
+          <div>
+            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-[#525252]">
+              What do you want to do about it?
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {pathOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setOutputPath(opt.value)}
+                  className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                    outputPath === opt.value
+                      ? "bg-[#0EA5E9] text-white"
+                      : "border border-[#E5E5E5] bg-white text-[#525252] hover:border-[#0EA5E9] hover:text-[#0EA5E9]"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="border-t border-[#E5E5E5]" />
+
+          {/* Active output */}
           {outputPath === "impact" && (
             <OutputImpact
               result={result}
@@ -554,24 +578,6 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
           )}
           {outputPath === "compare" && <OutputCompare result={result} />}
           {outputPath === "reprice" && <OutputReprice result={result} />}
-
-          {/* Output path tabs — small, quiet, below results */}
-          <div className="flex items-center gap-1 border-t border-[#E5E5E5] pt-4">
-            {pathOptions.map((opt) => (
-              <button
-                key={opt.value}
-                type="button"
-                onClick={() => setOutputPath(opt.value)}
-                className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
-                  outputPath === opt.value
-                    ? "bg-[#0EA5E9]/10 text-[#0EA5E9]"
-                    : "text-[#525252] hover:bg-[#F5F5F5] hover:text-[#0A0A0A]"
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
-          </div>
 
           {/* Email capture */}
           <EmailCapture result={result} />

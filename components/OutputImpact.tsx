@@ -85,26 +85,6 @@ export function OutputImpact({
         agreement. Verify with your processor.
       </p>
 
-      {result.inputs.monthlyCardRevenue >= 500000 && (
-        <div className="rounded-lg border border-[#A855F7]/30 bg-[#A855F7]/5 p-5">
-          <p className="text-sm font-semibold text-[#7C3AED]">
-            High-volume business? Let us handle the switch.
-          </p>
-          <p className="mt-1 text-sm text-[#525252]">
-            Running $500K+/month in card revenue means a processor switch is
-            worth thousands per year. We offer a $299 concierge service: we
-            handle the application, merchant setup, and switchover timeline for
-            you.
-          </p>
-          <a
-            href="mailto:concierge@surchargeswap.com.au?subject=Concierge%20Switch%20Enquiry"
-            className="mt-3 inline-block rounded-md bg-[#7C3AED] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#6D28D9]"
-          >
-            Enquire about concierge switching →
-          </a>
-        </div>
-      )}
-
       <div className="rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-5">
         <p className="text-sm font-semibold text-[#0A0A0A]">
           Amex surcharging — still permitted
@@ -141,28 +121,34 @@ export function OutputImpact({
         </p>
       </div>
 
+      {result.inputs.monthlyCardRevenue >= 500000 && (
+        <div className="rounded-lg border border-[#A855F7]/30 bg-[#A855F7]/5 p-5">
+          <p className="text-sm font-semibold text-[#7C3AED]">
+            High-volume business? Let us handle the switch.
+          </p>
+          <p className="mt-1 text-sm text-[#525252]">
+            Running $500K+/month in card revenue means a processor switch is
+            worth thousands per year. We offer a $299 concierge service: we
+            handle the application, merchant setup, and switchover timeline for
+            you.
+          </p>
+          <a
+            href="mailto:concierge@surchargeswap.com.au?subject=Concierge%20Switch%20Enquiry"
+            className="mt-3 inline-block rounded-md bg-[#7C3AED] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#6D28D9]"
+          >
+            Enquire about concierge switching →
+          </a>
+        </div>
+      )}
+
+      <hr className="border-[#E5E5E5]" />
+
       <BNPLToggle
         bnplRevenue={result.bnplRevenue}
         bnplMsfCost={result.bnplMsfCost}
         includeBnpl={includeBnpl}
         onToggle={onToggleBnpl}
       />
-
-      <div className="rounded-lg border border-[#0EA5E9]/30 bg-[#0EA5E9]/5 p-5">
-        <p className="text-sm font-semibold text-[#0A0A0A]">
-          Reduce this hit — switch to a cheaper processor
-        </p>
-        <p className="mt-1 text-sm text-[#525252]">
-          Compare all AU processors side-by-side and see exactly how much you
-          could recover each month.
-        </p>
-        <a
-          href="/compare"
-          className="mt-3 inline-block rounded-md bg-[#0EA5E9] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
-        >
-          Compare processors →
-        </a>
-      </div>
     </div>
   );
 }
