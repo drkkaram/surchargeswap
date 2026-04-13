@@ -158,7 +158,7 @@ export default function HomePage() {
       <section className="border-b border-[#E2E8F0] bg-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="grid grid-cols-1 divide-y divide-[#E2E8F0] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            <div className="flex flex-col gap-0.5 py-6 sm:py-0 sm:px-8 sm:first:pl-0">
+            <div className="flex flex-col gap-0.5 py-6 sm:py-0 sm:pr-8">
               <p className="font-mono text-4xl font-bold tracking-tight text-[#0F172A]">436,000</p>
               <p className="mt-1 text-sm font-medium text-[#374151]">businesses affected</p>
               <p className="text-xs text-[#94A3B8]">RBA, Mar 2026</p>
@@ -168,7 +168,7 @@ export default function HomePage() {
               <p className="mt-1 text-sm font-medium text-[#374151]">in annual fees absorbed by businesses</p>
               <p className="text-xs text-[#94A3B8]">previously passed to customers</p>
             </div>
-            <div className="flex flex-col gap-0.5 py-6 sm:py-0 sm:px-8">
+            <div className="flex flex-col gap-0.5 py-6 sm:py-0 sm:pl-8">
               <p className="font-mono text-4xl font-bold tracking-tight text-[#0F172A]">1 Oct 2026</p>
               <p className="mt-1 text-sm font-medium text-[#374151]">effective date</p>
               <p className="text-xs text-[#94A3B8]">Visa, Mastercard, eftpos</p>
@@ -233,18 +233,20 @@ export default function HomePage() {
 
       {/* Calculator */}
       <section id="calculator" className="bg-[#F8FAFC] scroll-mt-16">
-        <div className="mx-auto max-w-3xl px-6 py-12 sm:py-20">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">Free calculator</p>
-          <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-            Calculate your impact
-          </h2>
-          <p className="mt-3 text-sm text-[#6B7280]">
-            Runs in your browser. We never store your numbers.
-          </p>
-          <div className="mt-8 sm:mt-10">
-            <Suspense fallback={<div className="h-64 animate-pulse rounded-lg bg-white" />}>
-              <CalculatorWithParams />
-            </Suspense>
+        <div className="mx-auto max-w-5xl px-6 py-12 sm:py-20">
+          <div className="mx-auto max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">Free calculator</p>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+              Calculate your impact
+            </h2>
+            <p className="mt-3 text-sm text-[#6B7280]">
+              Runs in your browser. We never store your numbers.
+            </p>
+            <div className="mt-8 sm:mt-10">
+              <Suspense fallback={<div className="h-64 animate-pulse rounded-lg bg-white" />}>
+                <CalculatorWithParams />
+              </Suspense>
+            </div>
           </div>
         </div>
       </section>

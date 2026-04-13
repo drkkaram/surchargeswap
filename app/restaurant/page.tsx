@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RestaurantPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-5xl px-6 py-12">
       <div className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
           RBA Surcharge Ban Calculator for Restaurants
