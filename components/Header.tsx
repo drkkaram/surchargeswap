@@ -37,7 +37,7 @@ export function Header() {
           </Link>
           <Link
             href="/#calculator"
-            className="rounded-md bg-[#2563EB] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1D4ED8]"
+            className="rounded-xl bg-[#2563EB] px-4 py-2 text-sm font-medium text-white shadow-sm shadow-[#2563EB]/20 transition-colors hover:bg-[#1D4ED8]"
           >
             Calculate now
           </Link>
@@ -87,7 +87,7 @@ export function Header() {
             </Link>
             <Link
               href="/#calculator"
-              className="inline-block rounded-md bg-[#2563EB] px-4 py-2 text-center text-sm font-medium text-white"
+              className="inline-block rounded-xl bg-[#2563EB] px-4 py-2 text-center text-sm font-medium text-white shadow-sm shadow-[#2563EB]/20"
               onClick={() => setMobileOpen(false)}
             >
               Calculate now

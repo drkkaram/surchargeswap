@@ -270,7 +270,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
       <form
         ref={formRef}
         onSubmit={handleCalculate}
-        className="space-y-6 rounded-xl ring-1 ring-slate-200 bg-[#F8FAFC] p-7 shadow-none sm:p-10"
+        className="space-y-6 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-7 sm:p-10 shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
       >
         {/* Field 1: Monthly card revenue */}
         <div>
@@ -365,10 +365,10 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
               {/* Card mix section */}
               <div
                 ref={cardMixRef}
-                className={`space-y-4 rounded-lg p-5 transition-colors ${
+                className={`space-y-4 rounded-xl p-5 transition-colors ${
                   mixError
                     ? "border-2 border-[#DC2626] bg-[#FEF2F2]"
-                    : "border border-[#E2E8F0] bg-[#FAFAFA]"
+                    : "border border-[#E2E8F0] bg-white"
                 }`}
               >
                 <div className="flex items-baseline justify-between">
@@ -542,7 +542,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
       {result && (
         <div
           id="calculator-output"
-          className="space-y-6 rounded-xl ring-1 ring-slate-200 bg-[#F8FAFC] p-7 shadow-none sm:p-10"
+          className="space-y-6 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-7 sm:p-10 shadow-[0_4px_24px_rgba(37,99,235,0.06)]"
         >
           {/* What do you want to do — tabs ABOVE output */}
           <div>
@@ -583,7 +583,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
           <EmailCapture result={result} />
 
           {/* Share section */}
-          <div className="rounded-lg border border-[#E2E8F0] bg-[#FAFAFA] p-5">
+          <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5">
             <div className="flex items-start gap-3">
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2563EB]/10">
                 <svg
@@ -617,7 +617,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                       setTimeout(() => setCopied(false), 2000);
                     });
                   }}
-                  className="mt-3 inline-flex items-center gap-2 rounded-md border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition-colors hover:bg-[#F5F5F5]"
+                  className="mt-3 inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition-colors hover:bg-[#F5F5F5]"
                 >
                   {copied ? (
                     <>
