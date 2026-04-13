@@ -126,7 +126,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28 lg:py-40">
           <div className="flex flex-col items-center text-center">
             <DaysCounter />
-            <h1 className="mt-6 max-w-3xl font-serif italic text-5xl font-normal leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 max-w-3xl font-sans text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
               Australia is banning card surcharges. Find out what it costs you.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
