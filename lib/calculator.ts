@@ -89,8 +89,8 @@ export const PROCESSORS: ProcessorData[] = [
     terminalCost: 99,
     contract: "No lock-in",
     bestFor: "Businesses with online + in-store hybrid sales",
-    // TODO: Replace with confirmed Stripe AU Impact.com affiliate link before launch
-    affiliateHref: "https://stripe.pxf.io/surchargeswap?utm_source=surchargeswap&utm_medium=referral&utm_campaign=processor-compare",
+    // Stripe AU — no public affiliate program; linking to stripe.com/au directly
+    affiliateHref: "https://stripe.com/au?utm_source=surchargeswap&utm_medium=referral&utm_campaign=processor-compare",
     pricingModel: "flat",
     lastVerified: RATES_VERIFIED_DATE,
   },

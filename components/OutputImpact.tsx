@@ -55,18 +55,18 @@ export function OutputImpact({
         </div>
         <div className="mt-3 border-t border-[#E5E5E5] pt-3">
           <p className="mb-2 text-xs font-medium uppercase tracking-widest text-[#737373]">
-            Ongoing card costs (post-ban)
+            Context
           </p>
           <div className="flex items-baseline justify-between">
             <p className="text-sm text-[#525252]">
-              MSF paid from margin (was offset by surcharge)
+              MSF you continue paying (not new — was offset by surcharge)
             </p>
             <p className="font-mono text-base font-semibold text-[#737373]">
-              -{formatCurrency(result.msfToAbsorb)}/mo
+              {formatCurrency(result.msfToAbsorb)}/mo
             </p>
           </div>
           <p className="mt-1 text-xs text-[#737373]">
-            You always paid this — the surcharge covered it. Now it comes out of margin.
+            This fee existed before the ban. Your surcharge covered it. This is shown for context only — it is not included in your impact figure above.
           </p>
         </div>
 

@@ -187,26 +187,28 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
         currentMsfPct: Number(raw.currentMsfPct),
       };
 
-      // If advanced is open, validate card mix totals 100%
-      if (advancedOpen) {
-        const currentTotal =
-          vals.visaMastercardPct +
-          vals.eftposPct +
-          vals.amexPct +
-          vals.bnplPct;
-        if (currentTotal !== 100) {
-          setMixError(
-            `Card mix is currently ${currentTotal}% — adjust to reach 100%`
-          );
-          setShowResult(false);
+      // Always validate card mix totals 100% (even when accordion is closed)
+      const currentTotal =
+        vals.visaMastercardPct +
+        vals.eftposPct +
+        vals.amexPct +
+        vals.bnplPct;
+      if (currentTotal !== 100) {
+        setMixError(
+          `Card mix is currently ${currentTotal}% — adjust to reach 100%`
+        );
+        setShowResult(false);
+        // Open the accordion so the user can see the error
+        setAdvancedOpen(true);
+        setTimeout(() => {
           if (cardMixRef.current) {
             cardMixRef.current.scrollIntoView({
               behavior: "smooth",
               block: "center",
             });
           }
-          return;
-        }
+        }, 50);
+        return;
       }
 
       const errs = validateForm(vals);

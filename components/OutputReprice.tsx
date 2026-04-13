@@ -63,7 +63,7 @@ export function OutputReprice({ result }: OutputRepriceProps) {
         <div className="mt-4 border-t border-[#E5E5E5] pt-3">
           <div className="flex items-baseline justify-between">
             <p className="text-sm text-[#525252]">
-              Annual MSF offset from repricing
+              Annual surcharge revenue recovered
             </p>
             <p className="font-mono text-lg font-bold text-[#22C55E]">
               +{formatCurrency(result.annualRepriceRevenue)}/yr
