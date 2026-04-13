@@ -12,11 +12,13 @@ export const metadata: Metadata = {
     url: "https://surchargeswap.com.au/restaurant",
     siteName: "SurchargeSwap",
     type: "website",
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'SurchargeSwap — RBA Surcharge Ban Calculator' }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Surcharge Ban Calculator for Restaurants — SurchargeSwap",
     description: "Calculate the October 2026 RBA surcharge ban impact on your restaurant.",
+    images: ['/opengraph-image'],
   },
 };
 
