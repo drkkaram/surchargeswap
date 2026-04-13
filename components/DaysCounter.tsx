@@ -14,11 +14,18 @@ export function DaysCounter() {
 
   return (
     <div
-      className="inline-flex items-center gap-2 rounded-sm border border-[#EF4444]/30 bg-[#EF4444]/5 px-3 py-1.5 text-sm"
+      className="inline-flex flex-col items-center gap-2 rounded-lg border-2 border-[#F97316] bg-[#0F172A] px-8 py-6"
       aria-label={`${days} days until the 1 October 2026 RBA surcharge ban`}
     >
-      <time dateTime="2026-10-01" className="font-mono font-bold text-[#EF4444]">{days}</time>
-      <span className="text-[#525252]">days until 1 October 2026 surcharge ban</span>
+      <time 
+        dateTime="2026-10-01" 
+        className="font-mono text-7xl font-black leading-none text-[#F97316] sm:text-8xl"
+      >
+        {days}
+      </time>
+      <span className="text-center text-sm font-medium leading-tight text-white/90 sm:text-base">
+        days until 1 Oct 2026 surcharge ban
+      </span>
     </div>
   );
 }

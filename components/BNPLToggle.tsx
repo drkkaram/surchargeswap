@@ -20,29 +20,29 @@ export function BNPLToggle({
       <div className="flex items-start gap-3">
         <span className="mt-0.5 text-lg">&#9888;&#65039;</span>
         <div className="flex-1">
-          <p className="text-sm font-semibold text-[#0A0A0A]">
+          <p className="text-sm font-semibold text-[#0F172A]">
             BNPL is not covered by this ban
           </p>
-          <p className="mt-1 text-sm leading-relaxed text-[#525252]">
+          <p className="mt-1 text-sm leading-relaxed text-[#374151]">
             <strong>Note:</strong> This ban covers credit and debit card surcharges only.
             Buy Now Pay Later (BNPL) services like Afterpay and Zip have separate
             surcharge rules and are not covered by this ban.
           </p>
-          <p className="mt-1 text-sm leading-relaxed text-[#525252]">
+          <p className="mt-1 text-sm leading-relaxed text-[#374151]">
             Your BNPL volume: {formatCurrency(bnplRevenue)}/mo at ~4.5% MSF (est. Afterpay/Zip; Klarna/Humm varies) ={" "}
             {formatCurrency(bnplMsfCost)}/mo ongoing cost.
           </p>
-          <p className="mt-1 text-sm leading-relaxed text-[#525252]">
+          <p className="mt-1 text-sm leading-relaxed text-[#374151]">
             <strong>BNPL MSF is a pre-existing cost</strong> — most BNPL agreements already prohibit you from surcharging customers for it. Toggle it on to see your total payment cost picture.
           </p>
           <button
             type="button"
             onClick={() => onToggle(!includeBnpl)}
-            className="mt-3 flex items-center gap-2 text-sm font-medium text-[#0A0A0A]"
+            className="mt-3 flex items-center gap-2 text-sm font-medium text-[#0F172A]"
           >
             <span
               className={`flex h-5 w-9 items-center rounded-sm p-0.5 transition-colors ${
-                includeBnpl ? "bg-[#0EA5E9]" : "bg-[#E5E5E5]"
+                includeBnpl ? "bg-[#2563EB]" : "bg-[#E2E8F0]"
               }`}
             >
               <span

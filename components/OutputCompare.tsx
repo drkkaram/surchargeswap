@@ -13,17 +13,17 @@ export function OutputCompare({ result }: OutputCompareProps) {
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-xs font-medium uppercase tracking-widest text-[#525252]">
+        <p className="text-xs font-medium uppercase tracking-widest text-[#374151]">
           Processor Comparison
         </p>
-        <p className="mt-1 text-sm text-[#525252]">
+        <p className="mt-1 text-sm text-[#374151]">
           Based on your{" "}
-          <span className="font-mono font-semibold text-[#0A0A0A]">
+          <span className="font-mono font-semibold text-[#0F172A]">
             {formatCurrency(result.coveredCardRevenue)}
           </span>
           /mo in covered card revenue (Visa, Mastercard and eftpos only). Ranked by lowest monthly cost to you.
         </p>
-        <p className="text-xs text-[#525252] mt-1">
+        <p className="text-xs text-[#374151] mt-1">
           Amex and BNPL volume not included — those run at separate rates outside this comparison.
         </p>
       </div>

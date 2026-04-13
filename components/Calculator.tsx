@@ -270,13 +270,13 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
       <form
         ref={formRef}
         onSubmit={handleCalculate}
-        className="space-y-6 rounded-lg border border-[#E5E5E5] bg-white p-6 shadow-sm sm:p-8"
+        className="space-y-6 rounded-lg border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8"
       >
         {/* Field 1: Monthly card revenue */}
         <div>
           <label
             htmlFor="monthlyCardRevenue"
-            className="block text-sm font-medium text-[#0A0A0A]"
+            className="block text-sm font-medium text-[#0F172A]"
           >
             Monthly card revenue
           </label>
@@ -284,7 +284,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             Your total card sales per month. Find this in your terminal report or merchant app. Not your cash register total — just card payments.
           </p>
           <div className="relative mt-2">
-            <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#525252]">
+            <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#6B7280]">
               $
             </span>
             <input
@@ -293,11 +293,11 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
               step="1"
               inputMode="numeric"
               {...register("monthlyCardRevenue", { valueAsNumber: true })}
-              className="w-full rounded-md border border-[#E5E5E5] bg-[#FAFAFA] py-3 pl-7 pr-4 text-base text-[#0A0A0A] focus:border-[#0EA5E9] focus:outline-none focus:ring-1 focus:ring-[#0EA5E9]"
+              className="w-full rounded-md border border-[#E2E8F0] bg-[#FAFAFA] py-3 pl-7 pr-4 text-base text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
             />
           </div>
           {formErrors.monthlyCardRevenue && (
-            <p className="mt-1.5 text-xs text-[#EF4444]">
+            <p className="mt-1.5 text-xs text-[#DC2626]">
               {formErrors.monthlyCardRevenue}
             </p>
           )}
@@ -307,7 +307,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
         <div>
           <label
             htmlFor="currentMsfPct"
-            className="block text-sm font-medium text-[#0A0A0A]"
+            className="block text-sm font-medium text-[#0F172A]"
           >
             Merchant fee (MSF %)
           </label>
@@ -321,25 +321,25 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
               step="0.1"
               inputMode="decimal"
               {...register("currentMsfPct", { valueAsNumber: true })}
-              className="w-full rounded-md border border-[#E5E5E5] bg-[#FAFAFA] py-3 pl-3 pr-8 text-base text-[#0A0A0A] focus:border-[#0EA5E9] focus:outline-none focus:ring-1 focus:ring-[#0EA5E9]"
+              className="w-full rounded-md border border-[#E2E8F0] bg-[#FAFAFA] py-3 pl-3 pr-8 text-base text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
             />
-            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#525252]">
+            <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#6B7280]">
               %
             </span>
           </div>
           {formErrors.currentMsfPct && (
-            <p className="mt-1.5 text-xs text-[#EF4444]">
+            <p className="mt-1.5 text-xs text-[#DC2626]">
               {formErrors.currentMsfPct}
             </p>
           )}
         </div>
 
         {/* Advanced settings accordion */}
-        <div className="border-t border-[#E5E5E5] pt-4">
+        <div className="border-t border-[#E2E8F0] pt-4">
           <button
             type="button"
             onClick={() => setAdvancedOpen(!advancedOpen)}
-            className="flex w-full items-center gap-2 text-sm font-medium text-[#525252] transition-colors hover:text-[#0A0A0A]"
+            className="flex w-full items-center gap-2 text-sm font-medium text-[#6B7280] transition-colors hover:text-[#0F172A]"
           >
             <svg
               className={`h-4 w-4 transition-transform ${advancedOpen ? "rotate-90" : ""}`}
@@ -367,13 +367,13 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                 ref={cardMixRef}
                 className={`space-y-4 rounded-lg p-5 transition-colors ${
                   mixError
-                    ? "border-2 border-[#EF4444] bg-[#FEF2F2]"
-                    : "border border-[#E5E5E5] bg-[#FAFAFA]"
+                    ? "border-2 border-[#DC2626] bg-[#FEF2F2]"
+                    : "border border-[#E2E8F0] bg-[#FAFAFA]"
                 }`}
               >
                 <div className="flex items-baseline justify-between">
                   <div>
-                    <p className="text-sm font-medium text-[#0A0A0A]">
+                    <p className="text-sm font-medium text-[#0F172A]">
                       Card mix
                     </p>
                     <p className="text-xs text-[#737373]">
@@ -382,7 +382,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                   </div>
                   <p
                     className={`flex items-center gap-1 font-mono text-sm font-semibold ${
-                      isMixValid ? "text-[#22C55E]" : "text-[#EF4444]"
+                      isMixValid ? "text-[#16A34A]" : "text-[#DC2626]"
                     }`}
                   >
                     {cardMixTotal}%
@@ -405,9 +405,9 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                 </div>
 
                 {mixError && (
-                  <div className="flex items-center gap-2 rounded-md bg-[#EF4444]/10 px-3 py-2">
+                  <div className="flex items-center gap-2 rounded-md bg-[#DC2626]/10 px-3 py-2">
                     <svg
-                      className="h-4 w-4 shrink-0 text-[#EF4444]"
+                      className="h-4 w-4 shrink-0 text-[#DC2626]"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -419,7 +419,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                         d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
                       />
                     </svg>
-                    <p className="text-sm font-medium text-[#EF4444]">
+                    <p className="text-sm font-medium text-[#DC2626]">
                       {mixError}
                     </p>
                   </div>
@@ -434,8 +434,8 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                       onClick={() => handlePresetClick(preset)}
                       className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${
                         activePreset === preset.label
-                          ? "bg-[#0EA5E9] text-white"
-                          : "border border-[#E5E5E5] bg-white text-[#525252] hover:border-[#0EA5E9] hover:text-[#0EA5E9]"
+                          ? "bg-[#2563EB] text-white"
+                          : "border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#2563EB] hover:text-[#2563EB]"
                       }`}
                     >
                       {preset.label}
@@ -461,7 +461,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                     <div key={field.name}>
                       <label
                         htmlFor={field.name}
-                        className="block text-sm text-[#525252]"
+                        className="block text-sm text-[#6B7280]"
                       >
                         {field.label}
                       </label>
@@ -479,9 +479,9 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                             setActivePreset("Custom");
                             setMixError(null);
                           }}
-                          className="w-full rounded-md border border-[#E5E5E5] bg-white py-3 pl-3 pr-8 text-sm text-[#0A0A0A] focus:border-[#0EA5E9] focus:outline-none focus:ring-1 focus:ring-[#0EA5E9]"
+                          className="w-full rounded-md border border-[#E2E8F0] bg-white py-3 pl-3 pr-8 text-sm text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
                         />
-                        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[#525252]">
+                        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[#6B7280]">
                           %
                         </span>
                       </div>
@@ -494,7 +494,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
               <div>
                 <label
                   htmlFor="currentSurchargePct"
-                  className="block text-sm font-medium text-[#525252]"
+                  className="block text-sm font-medium text-[#6B7280]"
                 >
                   Surcharge rate you currently charge
                 </label>
@@ -510,14 +510,14 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                     {...register("currentSurchargePct", {
                       valueAsNumber: true,
                     })}
-                    className="w-full rounded-md border border-[#E5E5E5] bg-[#FAFAFA] py-3 pl-3 pr-8 text-sm text-[#0A0A0A] focus:border-[#0EA5E9] focus:outline-none focus:ring-1 focus:ring-[#0EA5E9]"
+                    className="w-full rounded-md border border-[#E2E8F0] bg-[#FAFAFA] py-3 pl-3 pr-8 text-sm text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
                   />
-                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[#525252]">
+                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[#6B7280]">
                     %
                   </span>
                 </div>
                 {formErrors.currentSurchargePct && (
-                  <p className="mt-1 text-xs text-[#EF4444]">
+                  <p className="mt-1 text-xs text-[#DC2626]">
                     {formErrors.currentSurchargePct}
                   </p>
                 )}
@@ -530,7 +530,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
         <button
           type="submit"
           disabled={isCalculating}
-          className="w-full rounded-md bg-[#0EA5E9] py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#0284C7] disabled:opacity-50"
+          className="w-full rounded-md bg-[#2563EB] py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#1D4ED8] disabled:opacity-50"
         >
           <span className={isCalculating ? "animate-pulse" : ""}>
             {isCalculating ? "Calculating..." : "Calculate my impact →"}
@@ -542,11 +542,11 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
       {result && (
         <div
           id="calculator-output"
-          className="space-y-6 rounded-lg border border-[#E5E5E5] bg-white p-6 shadow-sm sm:p-8"
+          className="space-y-6 rounded-lg border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8"
         >
           {/* What do you want to do — tabs ABOVE output */}
           <div>
-            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-[#525252]">
+            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-[#6B7280]">
               What do you want to do about it?
             </p>
             <div className="flex flex-wrap gap-2">
@@ -557,8 +557,8 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                   onClick={() => setOutputPath(opt.value)}
                   className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
                     outputPath === opt.value
-                      ? "bg-[#0EA5E9] text-white"
-                      : "border border-[#E5E5E5] bg-white text-[#525252] hover:border-[#0EA5E9] hover:text-[#0EA5E9]"
+                      ? "bg-[#2563EB] text-white"
+                      : "border border-[#E2E8F0] bg-white text-[#6B7280] hover:border-[#2563EB] hover:text-[#2563EB]"
                   }`}
                 >
                   {opt.label}
@@ -566,7 +566,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
               ))}
             </div>
           </div>
-          <div className="border-t border-[#E5E5E5]" />
+          <div className="border-t border-[#E2E8F0]" />
 
           {/* Active output */}
           {outputPath === "impact" && (
@@ -583,11 +583,11 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
           <EmailCapture result={result} />
 
           {/* Share section */}
-          <div className="rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-5">
+          <div className="rounded-lg border border-[#E2E8F0] bg-[#FAFAFA] p-5">
             <div className="flex items-start gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0EA5E9]/10">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2563EB]/10">
                 <svg
-                  className="h-4 w-4 text-[#0EA5E9]"
+                  className="h-4 w-4 text-[#2563EB]"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={2}
@@ -601,10 +601,10 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-semibold text-[#0A0A0A]">
+                <p className="text-sm font-semibold text-[#0F172A]">
                   Share with your accountant
                 </p>
-                <p className="mt-0.5 text-xs text-[#525252]">
+                <p className="mt-0.5 text-xs text-[#6B7280]">
                   Send this link to your accountant or bookkeeper — they&apos;ll
                   see exactly your numbers and results.
                 </p>
@@ -617,12 +617,12 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                       setTimeout(() => setCopied(false), 2000);
                     });
                   }}
-                  className="mt-3 inline-flex items-center gap-2 rounded-md border border-[#E5E5E5] bg-white px-4 py-2.5 text-sm font-medium text-[#0A0A0A] transition-colors hover:bg-[#F5F5F5]"
+                  className="mt-3 inline-flex items-center gap-2 rounded-md border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition-colors hover:bg-[#F5F5F5]"
                 >
                   {copied ? (
                     <>
                       <svg
-                        className="h-4 w-4 text-[#22C55E]"
+                        className="h-4 w-4 text-[#16A34A]"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth={2}

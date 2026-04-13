@@ -24,82 +24,82 @@ export function OutputImpact({
     <div className="space-y-6">
       {/* Hero number — dominant, unmissable */}
       <div className="text-center">
-        <p className="text-xs font-medium uppercase tracking-widest text-[#525252]">
+        <p className="text-xs font-medium uppercase tracking-widest text-[#374151]">
           Your monthly impact{includeBnpl ? " (incl. BNPL)" : ""}
         </p>
-        <p className="mt-2 font-mono text-5xl font-bold tracking-tight text-[#EF4444] sm:text-6xl">
+        <p className="mt-2 font-mono text-5xl font-bold tracking-tight text-[#DC2626] sm:text-6xl">
           -{formatCurrency(totalMonthly)}
           <span className="text-2xl sm:text-3xl">/mo</span>
         </p>
-        <p className="mt-2 text-lg text-[#525252] sm:text-xl">
+        <p className="mt-2 text-lg text-[#374151] sm:text-xl">
           That&apos;s{" "}
-          <span className="font-mono font-semibold text-[#EF4444]">
+          <span className="font-mono font-semibold text-[#DC2626]">
             -{formatCurrency(totalAnnual)}
           </span>{" "}
           per year
         </p>
         {totalMonthly === 0 && (
-          <p className="mt-3 text-sm font-medium text-[#22C55E]">
+          <p className="mt-3 text-sm font-medium text-[#16A34A]">
             ✓ No surcharge revenue to lose — your card fees are already fully absorbed.
           </p>
         )}
       </div>
 
       {/* Breakdown */}
-      <div className="space-y-3 rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-5">
-        <p className="text-xs font-medium uppercase tracking-widest text-[#525252]">
+      <div className="space-y-3 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-5">
+        <p className="text-xs font-medium uppercase tracking-widest text-[#374151]">
           Breakdown
         </p>
         <div className="flex items-baseline justify-between">
-          <p className="text-sm text-[#525252]">
+          <p className="text-sm text-[#374151]">
             Surcharge revenue you&apos;ll stop collecting
           </p>
-          <p className="font-mono text-base font-semibold text-[#EF4444]">
+          <p className="font-mono text-base font-semibold text-[#DC2626]">
             -{formatCurrency(result.surchargeRevenueLost)}
           </p>
         </div>
-        <div className="mt-3 border-t border-[#E5E5E5] pt-3">
-          <p className="mb-2 text-xs font-medium uppercase tracking-widest text-[#737373]">
+        <div className="mt-3 border-t border-[#E2E8F0] pt-3">
+          <p className="mb-2 text-xs font-medium uppercase tracking-widest text-[#6B7280]">
             Context
           </p>
           <div className="flex items-baseline justify-between">
-            <p className="text-sm text-[#525252]">
+            <p className="text-sm text-[#374151]">
               MSF you continue paying (not new — was offset by surcharge)
             </p>
-            <p className="font-mono text-base font-semibold text-[#737373]">
+            <p className="font-mono text-base font-semibold text-[#6B7280]">
               {formatCurrency(result.msfToAbsorb)}/mo
             </p>
           </div>
-          <p className="mt-1 text-xs text-[#737373]">
+          <p className="mt-1 text-xs text-[#6B7280]">
             This fee existed before the ban. Your surcharge covered it. This is shown for context only — it is not included in your impact figure above.
           </p>
         </div>
 
         {includeBnpl && (
           <div className="flex items-baseline justify-between">
-            <p className="text-sm text-[#525252]">BNPL MSF cost (ongoing)</p>
-            <p className="font-mono text-base font-semibold text-[#EF4444]">
+            <p className="text-sm text-[#374151]">BNPL MSF cost (ongoing)</p>
+            <p className="font-mono text-base font-semibold text-[#DC2626]">
               -{formatCurrency(result.bnplMsfCost)}
             </p>
           </div>
         )}
       </div>
 
-      <p className="text-xs italic text-[#525252]">
+      <p className="text-xs italic text-[#374151]">
         Estimates based on your inputs. Actual impact depends on your merchant
         agreement. Verify with your processor.
       </p>
 
-      <div className="rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-5">
-        <p className="text-sm font-semibold text-[#0A0A0A]">
+      <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-5">
+        <p className="text-sm font-semibold text-[#0F172A]">
           Amex surcharging — still permitted
         </p>
-        <p className="mt-1 text-sm leading-relaxed text-[#525252]">
+        <p className="mt-1 text-sm leading-relaxed text-[#374151]">
           American Express operates as a three-party scheme and is not
           designated by the RBA under the surcharge ban. The October 2026 ban
           does not apply to Amex — you can continue surcharging Amex
           transactions regardless of your business size.{" "}
-          <span className="text-xs text-[#737373]">
+          <span className="text-xs text-[#6B7280]">
             (As confirmed in the RBA Conclusions Paper, March 2026 — check{" "}
             <a
               href="https://www.rba.gov.au"
@@ -112,14 +112,14 @@ export function OutputImpact({
             for updates.)
           </span>
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-[#525252]">
+        <p className="mt-2 text-sm leading-relaxed text-[#374151]">
           Ensure your POS supports selective surcharging by card network. Your
           recoverable Amex surcharge:{" "}
-          <span className="font-mono font-semibold text-[#22C55E]">
+          <span className="font-mono font-semibold text-[#16A34A]">
             {formatCurrency(result.amexSurchargeRecovery)}
           </span>
           /mo (based on{" "}
-          <span className="font-mono font-semibold text-[#0A0A0A]">
+          <span className="font-mono font-semibold text-[#0F172A]">
             {formatCurrency(result.amexRevenue)}
           </span>
           /mo Amex revenue).
@@ -131,7 +131,7 @@ export function OutputImpact({
           <p className="text-sm font-semibold text-[#7C3AED]">
             High-volume business? Let us handle the switch.
           </p>
-          <p className="mt-1 text-sm text-[#525252]">
+          <p className="mt-1 text-sm text-[#374151]">
             Running $500K+/month in card revenue means a processor switch is
             worth thousands per year. We offer a $299 concierge service: we
             handle the application, merchant setup, and switchover timeline for
@@ -146,7 +146,7 @@ export function OutputImpact({
         </div>
       )}
 
-      <hr className="border-[#E5E5E5]" />
+      <hr className="border-[#E2E8F0]" />
 
       <BNPLToggle
         bnplRevenue={result.bnplRevenue}
