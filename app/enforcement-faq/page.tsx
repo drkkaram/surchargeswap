@@ -4,6 +4,28 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: 'RBA Surcharge Ban Enforcement — Who Polices It? | SurchargeSwap',
   description: 'ACCC enforces the October 2026 RBA surcharge ban. Learn about penalties, consumer complaints, and what happens if businesses ignore the rules.',
+  openGraph: {
+    title: 'RBA Surcharge Ban Enforcement — Who Polices It?',
+    description: 'ACCC enforces the October 2026 RBA surcharge ban. Learn about penalties, consumer complaints, and what happens if businesses ignore the rules.',
+    url: 'https://surchargeswap.com.au/enforcement-faq',
+    siteName: 'SurchargeSwap',
+    locale: 'en_AU',
+    type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'SurchargeSwap — RBA Surcharge Ban Enforcement FAQ',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RBA Surcharge Ban Enforcement — Who Polices It?',
+    description: 'ACCC enforces the October 2026 RBA surcharge ban. Learn about penalties, consumer complaints, and what happens if businesses ignore the rules.',
+    images: ['/opengraph-image'],
+  },
   alternates: {
     canonical: 'https://surchargeswap.com.au/enforcement-faq',
   },
