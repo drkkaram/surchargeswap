@@ -24,7 +24,7 @@ export function OutputCompare({ result }: OutputCompareProps) {
           /mo in covered card revenue (Visa, Mastercard and eftpos only). Ranked by lowest monthly cost to you.
         </p>
         <p className="text-xs text-[#374151] mt-1">
-          Amex and BNPL volume not included — those run at separate rates outside this comparison.
+          Amex and BNPL volume not included. Those run at separate rates outside this comparison.
         </p>
       </div>
 
@@ -36,7 +36,7 @@ export function OutputCompare({ result }: OutputCompareProps) {
 
       <InterchangeModule interchangeSaving={result.interchangeSaving} />
 
-      <p className="text-xs text-gray-500 mt-2">
+      <p className="text-xs text-[#6B7280] mt-2">
         * SurchargeSwap may earn a referral fee if you sign up through our links. This doesn&apos;t affect our rankings or fee data.{' '}
         <a href="/affiliate-disclosure" className="underline">Learn more</a>
       </p>

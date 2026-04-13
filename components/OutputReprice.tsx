@@ -40,7 +40,7 @@ export function OutputReprice({ result }: OutputRepriceProps) {
         </p>
       </div>
 
-      <div className="border border-[#E2E8F0] bg-white p-5 rounded-sm">
+      <div className="bg-slate-50 rounded-xl p-5 border-0">
         <p className="mb-3 text-sm font-medium text-[#374151]">
           Example impact
         </p>
@@ -49,7 +49,7 @@ export function OutputReprice({ result }: OutputRepriceProps) {
             <div key={ex.original} className="flex items-center justify-between">
               <p className="text-sm text-[#374151]">{ex.label}</p>
               <p className="text-sm text-[#0F172A]">
-                &rarr;{" "}
+
                 <span className="font-mono font-semibold">
                   {formatCurrencyDecimal(ex.original * multiplier)}
                 </span>
@@ -72,7 +72,7 @@ export function OutputReprice({ result }: OutputRepriceProps) {
         </div>
       </div>
 
-      <div className="border border-[#E2E8F0] bg-[#F8FAFC] p-5 rounded-sm">
+      <div className="bg-slate-50 rounded-xl p-5 border-0">
         <p className="text-sm font-semibold text-[#0F172A]">
           Is repricing right for you?
         </p>

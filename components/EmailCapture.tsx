@@ -61,21 +61,21 @@ export function EmailCapture({ result }: EmailCaptureProps) {
         downloadPdf(result);
         setStatus("fallback");
         setErrorMessage(
-          "Email failed — your PDF has been downloaded instead."
+          "Email failed. Your PDF has been downloaded instead."
         );
       }
     } catch {
       downloadPdf(result);
       setStatus("fallback");
       setErrorMessage(
-        "Email failed — your PDF has been downloaded instead."
+        "Email failed. Your PDF has been downloaded instead."
       );
     }
   };
 
   if (status === "sent") {
     return (
-      <div className="border border-[#16A34A]/30 bg-[#16A34A]/5 p-6 rounded-sm">
+      <div className="bg-green-50 border-l-4 border-[#16A34A] pl-6 p-6 rounded-xl">
         <p className="text-sm font-semibold text-[#16A34A]">Report sent</p>
         <p className="mt-1 text-sm text-[#374151]">
           Check your inbox for your SurchargeSwap report with full analysis,
@@ -87,12 +87,12 @@ export function EmailCapture({ result }: EmailCaptureProps) {
   }
 
   return (
-    <div className="border border-[#E2E8F0] bg-white p-6 rounded-sm">
+    <div className="bg-slate-50 rounded-xl p-6 border-0">
       <p className="text-base font-semibold text-[#0F172A]">
         Get your full analysis as a PDF
       </p>
       <p className="mt-1 text-sm text-[#374151]">
-        We&apos;ll email you a PDF copy of your full calculation. No marketing list, no spam &mdash; report delivery only.
+        We'll email you a PDF copy of your full calculation. No marketing list, no spam, report delivery only.
       </p>
 
       <button
@@ -100,12 +100,12 @@ export function EmailCapture({ result }: EmailCaptureProps) {
         onClick={handleDownload}
         className="mt-4 w-full rounded-md bg-[#0F172A] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#374151] sm:w-auto"
       >
-        Download PDF directly &darr;
+        Download PDF report
       </button>
 
       <div className="mt-5 border-t border-[#E2E8F0] pt-5">
         <p className="text-sm text-[#374151]">
-          …or email it to yourself &rarr;
+          Or email it to yourself:
         </p>
         <form
           onSubmit={handleSubmit}
@@ -141,9 +141,9 @@ export function EmailCapture({ result }: EmailCaptureProps) {
       <div className="mt-4 border-t border-[#E2E8F0] pt-4">
         <p className="text-xs text-[#374151]">
           <span className="font-medium text-[#0F172A]">Coming soon:</span>{" "}
-          Ongoing processor rate monitoring — we alert you when a cheaper deal appears.{" "}
+          Ongoing processor rate monitoring: we alert you when a cheaper deal appears.{" "}
           <a href="mailto:waitlist@surchargeswap.com.au?subject=Rate%20Monitor%20Waitlist" className="underline text-[#2563EB]">
-            Join the waitlist →
+            Join the waitlist
           </a>
         </p>
       </div>

@@ -126,7 +126,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24 lg:py-32">
           <div className="flex flex-col items-center text-center">
             <DaysCounter />
-            <h1 className="mt-8 max-w-3xl font-serif text-4xl font-normal leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-8 max-w-3xl font-serif italic text-4xl font-normal leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
               Australia is banning card surcharges. Find out what it costs you.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
@@ -141,13 +141,13 @@ export default function HomePage() {
                 href="#calculator"
                 className="rounded-md bg-white px-6 py-3 text-sm font-medium text-[#0F172A] transition-colors hover:bg-slate-100"
               >
-                Calculate now →
+                Calculate now
               </a>
               <a
                 href="#how-it-works"
                 className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
               >
-                See how it works ↓
+                See how it works
               </a>
             </div>
           </div>
@@ -161,8 +161,8 @@ export default function HomePage() {
             <div className="flex items-baseline gap-2">
               <p className="font-mono text-2xl font-bold text-[#0F172A]">436,000</p>
               <div className="flex flex-col">
-                <p className="text-xs font-medium text-[#6B7280]">businesses affected</p>
-                <p className="text-[10px] text-[#9CA3AF]">(RBA, Mar 2026)</p>
+                <p className="text-xs font-medium text-[#94A3B8]">businesses affected</p>
+                <p className="text-xs text-[#94A3B8]">(RBA, Mar 2026)</p>
               </div>
             </div>
             <div className="h-8 w-px bg-[#E2E8F0] hidden sm:block" />
@@ -186,24 +186,24 @@ export default function HomePage() {
             How it works
           </h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            <div className="relative">
-              <div className="absolute -left-3 top-0 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+            <div className="flex flex-col gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
                 <span className="font-mono text-xl font-bold text-[#0F172A]">1</span>
               </div>
-              <div className="pl-12">
+              <div>
                 <p className="text-base font-semibold text-[#0F172A]">
                   Enter your numbers
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[#374151]">
-                  Your monthly card revenue and your bank&apos;s fee (MSF). Two fields. Takes 10 seconds.
+                  Your monthly card revenue and your bank's fee (MSF). Two fields. Takes 10 seconds.
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute -left-3 top-0 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+            <div className="flex flex-col gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
                 <span className="font-mono text-xl font-bold text-[#0F172A]">2</span>
               </div>
-              <div className="pl-12">
+              <div>
                 <p className="text-base font-semibold text-[#0F172A]">
                   See your impact instantly
                 </p>
@@ -212,16 +212,16 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute -left-3 top-0 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+            <div className="flex flex-col gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
                 <span className="font-mono text-xl font-bold text-[#0F172A]">3</span>
               </div>
-              <div className="pl-12">
+              <div>
                 <p className="text-base font-semibold text-[#0F172A]">
                   Take action
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[#374151]">
-                  Compare processors side-by-side, model a menu price increase, or share the result link with your accountant — all from the same page.
+                  Compare processors side-by-side, model a menu price increase, or share the result link with your accountant, all from the same page.
                 </p>
               </div>
             </div>
@@ -240,13 +240,13 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="font-mono text-3xl font-bold text-[#0F172A]">{RATES_VERIFIED_DATE}</p>
+              <p className="font-mono text-xl font-semibold text-[#0F172A]">{RATES_VERIFIED_DATE}</p>
               <p className="text-sm leading-relaxed text-[#374151]">
                 Processor rates verified against published pricing. Tyro, Zeller, Square and Stripe AU confirmed.
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="font-mono text-3xl font-bold text-[#0F172A]">RBA-sourced</p>
+              <p className="font-mono text-xl font-semibold text-[#0F172A]">RBA-sourced</p>
               <p className="text-sm leading-relaxed text-[#374151]">
                 Impact figures sourced from the RBA Payments System Board Conclusions Paper, March 2026.
               </p>

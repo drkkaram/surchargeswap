@@ -11,9 +11,9 @@ export function Header() {
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="font-mono text-lg font-bold tracking-tighter text-white"
+          className="font-sans text-lg font-bold tracking-wide text-white"
         >
-          SurchargeSwap
+          Surcharge<span className="text-[#F97316]">Swap</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -39,7 +39,7 @@ export function Header() {
             href="/#calculator"
             className="rounded-md bg-[#2563EB] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1D4ED8]"
           >
-            Calculate now →
+            Calculate now
           </Link>
         </nav>
 
@@ -90,7 +90,7 @@ export function Header() {
               className="inline-block rounded-md bg-[#2563EB] px-4 py-2 text-center text-sm font-medium text-white"
               onClick={() => setMobileOpen(false)}
             >
-              Calculate now →
+              Calculate now
             </Link>
           </nav>
         </div>

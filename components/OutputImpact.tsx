@@ -22,7 +22,7 @@ export function OutputImpact({
 
   return (
     <div className="space-y-6">
-      {/* Hero number — dominant, unmissable */}
+      {/* Hero number - dominant, unmissable */}
       <div className="text-center">
         <p className="text-xs font-medium uppercase tracking-widest text-[#374151]">
           Your monthly impact{includeBnpl ? " (incl. BNPL)" : ""}
@@ -40,13 +40,13 @@ export function OutputImpact({
         </p>
         {totalMonthly === 0 && (
           <p className="mt-3 text-sm font-medium text-[#16A34A]">
-            ✓ No surcharge revenue to lose — your card fees are already fully absorbed.
+            ✓ No surcharge revenue to lose: your card fees are already fully absorbed.
           </p>
         )}
       </div>
 
       {/* Breakdown */}
-      <div className="space-y-3 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-5">
+      <div className="space-y-3 rounded-xl bg-slate-50 p-5 border-0">
         <p className="text-xs font-medium uppercase tracking-widest text-[#374151]">
           Breakdown
         </p>
@@ -64,14 +64,14 @@ export function OutputImpact({
           </p>
           <div className="flex items-baseline justify-between">
             <p className="text-sm text-[#374151]">
-              MSF you continue paying (not new — was offset by surcharge)
+              MSF you continue paying (not new, was offset by surcharge)
             </p>
             <p className="font-mono text-base font-semibold text-[#6B7280]">
               {formatCurrency(result.msfToAbsorb)}/mo
             </p>
           </div>
           <p className="mt-1 text-xs text-[#6B7280]">
-            This fee existed before the ban. Your surcharge covered it. This is shown for context only — it is not included in your impact figure above.
+            This fee existed before the ban. Your surcharge covered it. This is shown for context only. It is not included in your impact figure above.
           </p>
         </div>
 
@@ -90,17 +90,17 @@ export function OutputImpact({
         agreement. Verify with your processor.
       </p>
 
-      <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-5">
+      <div className="rounded-xl bg-slate-50 p-5 border-0">
         <p className="text-sm font-semibold text-[#0F172A]">
-          Amex surcharging — still permitted
+          Amex surcharging: still permitted
         </p>
         <p className="mt-1 text-sm leading-relaxed text-[#374151]">
           American Express operates as a three-party scheme and is not
           designated by the RBA under the surcharge ban. The October 2026 ban
-          does not apply to Amex — you can continue surcharging Amex
+          does not apply to Amex. You can continue surcharging Amex
           transactions regardless of your business size.{" "}
           <span className="text-xs text-[#6B7280]">
-            (As confirmed in the RBA Conclusions Paper, March 2026 — check{" "}
+            (As confirmed in the RBA Conclusions Paper, March 2026. Check{" "}
             <a
               href="https://www.rba.gov.au"
               target="_blank"
@@ -127,7 +127,7 @@ export function OutputImpact({
       </div>
 
       {result.inputs.monthlyCardRevenue >= 500000 && (
-        <div className="rounded-lg border border-[#A855F7]/30 bg-[#A855F7]/5 p-5">
+        <div className="rounded-xl border border-[#A855F7]/30 bg-[#A855F7]/5 p-5">
           <p className="text-sm font-semibold text-[#7C3AED]">
             High-volume business? Let us handle the switch.
           </p>
@@ -141,7 +141,7 @@ export function OutputImpact({
             href="mailto:concierge@surchargeswap.com.au?subject=Concierge%20Switch%20Enquiry"
             className="mt-3 inline-block rounded-md bg-[#7C3AED] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#6D28D9]"
           >
-            Enquire about concierge switching →
+            Enquire about concierge switching
           </a>
         </div>
       )}

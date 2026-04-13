@@ -62,7 +62,7 @@ export default function RootLayout({
         {gaId && <link rel="preconnect" href="https://www.googletagmanager.com" />}
         {gaId && <link rel="preconnect" href="https://www.google-analytics.com" />}
       </head>
-      <body className="flex min-h-full flex-col bg-[#FAFAFA]">
+      <body className="flex min-h-full flex-col bg-white">
         <PostHogProvider>
           <Header />
           <main className="flex-1">{children}</main>

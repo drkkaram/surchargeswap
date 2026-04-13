@@ -270,7 +270,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
       <form
         ref={formRef}
         onSubmit={handleCalculate}
-        className="space-y-6 rounded-lg border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8"
+        className="space-y-6 rounded-xl ring-1 ring-slate-200 bg-[#F8FAFC] p-7 shadow-none sm:p-10"
       >
         {/* Field 1: Monthly card revenue */}
         <div>
@@ -293,7 +293,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
               step="1"
               inputMode="numeric"
               {...register("monthlyCardRevenue", { valueAsNumber: true })}
-              className="w-full rounded-md border border-[#E2E8F0] bg-[#FAFAFA] py-3 pl-7 pr-4 text-base text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
+              className="w-full rounded-md border border-[#E2E8F0] bg-white py-3 pl-7 pr-4 text-base text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
             />
           </div>
           {formErrors.monthlyCardRevenue && (
@@ -321,7 +321,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
               step="0.1"
               inputMode="decimal"
               {...register("currentMsfPct", { valueAsNumber: true })}
-              className="w-full rounded-md border border-[#E2E8F0] bg-[#FAFAFA] py-3 pl-3 pr-8 text-base text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
+              className="w-full rounded-md border border-[#E2E8F0] bg-white py-3 pl-3 pr-8 text-base text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
             />
             <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#6B7280]">
               %
@@ -510,7 +510,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                     {...register("currentSurchargePct", {
                       valueAsNumber: true,
                     })}
-                    className="w-full rounded-md border border-[#E2E8F0] bg-[#FAFAFA] py-3 pl-3 pr-8 text-sm text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
+                    className="w-full rounded-md border border-[#E2E8F0] bg-white py-3 pl-3 pr-8 text-sm text-[#0F172A] focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
                   />
                   <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[#6B7280]">
                     %
@@ -530,10 +530,10 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
         <button
           type="submit"
           disabled={isCalculating}
-          className="w-full rounded-md bg-[#2563EB] py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#1D4ED8] disabled:opacity-50"
+          className="w-full rounded-lg bg-[#2563EB] py-3.5 text-base font-semibold text-white shadow-sm transition-colors hover:bg-[#1D4ED8] disabled:opacity-50"
         >
           <span className={isCalculating ? "animate-pulse" : ""}>
-            {isCalculating ? "Calculating..." : "Calculate my impact →"}
+            {isCalculating ? "Calculating..." : "Calculate my impact"}
           </span>
         </button>
       </form>
@@ -542,7 +542,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
       {result && (
         <div
           id="calculator-output"
-          className="space-y-6 rounded-lg border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8"
+          className="space-y-6 rounded-xl ring-1 ring-slate-200 bg-[#F8FAFC] p-7 shadow-none sm:p-10"
         >
           {/* What do you want to do — tabs ABOVE output */}
           <div>
