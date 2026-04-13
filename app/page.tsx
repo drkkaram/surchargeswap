@@ -121,15 +121,11 @@ export default function HomePage() {
     <>
       <JsonLd />
 
-      {/* Hero — Dark, urgent, serif headline */}
+      {/* Hero */}
       <section className="bg-[#0F172A] border-b border-[#1E293B]">
         <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28 lg:py-40">
           <div className="flex flex-col items-center text-center">
             <DaysCounter />
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#E1EAF8] bg-[#EFF6FF]/80 px-4 py-1.5 text-xs font-medium text-[#2563EB] backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
-              RBA announcement: surcharge ban confirmed for 1 Oct 2026
-            </div>
             <h1 className="mt-6 max-w-3xl font-serif italic text-5xl font-normal leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
               Australia is banning card surcharges. Find out what it costs you.
             </h1>
@@ -158,103 +154,95 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="border-b border-[#E2E8F0] bg-[#F8FAFC]">
-        <div className="mx-auto max-w-5xl px-6 py-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <div className="flex flex-col gap-1">
-              <p className="font-mono text-3xl font-bold tracking-tight text-[#0F172A]">436,000</p>
-              <p className="text-sm font-medium text-[#374151]">businesses affected</p>
-              <p className="text-xs text-[#94A3B8]">Source: RBA, Mar 2026</p>
+      {/* Stats bar — no cards, just numbers */}
+      <section className="border-b border-[#E2E8F0] bg-white">
+        <div className="mx-auto max-w-5xl px-6 py-10">
+          <div className="grid grid-cols-1 divide-y divide-[#E2E8F0] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            <div className="flex flex-col gap-0.5 py-6 sm:py-0 sm:px-8 sm:first:pl-0">
+              <p className="font-mono text-4xl font-bold tracking-tight text-[#0F172A]">436,000</p>
+              <p className="mt-1 text-sm font-medium text-[#374151]">businesses affected</p>
+              <p className="text-xs text-[#94A3B8]">RBA, Mar 2026</p>
             </div>
-            <div className="flex flex-col gap-1">
-              <p className="font-mono text-3xl font-bold tracking-tight text-[#0F172A]">$910M</p>
-              <p className="text-sm font-medium text-[#374151]">in annual fees eliminated</p>
-              <p className="text-xs text-[#94A3B8]">absorbed by businesses</p>
+            <div className="flex flex-col gap-0.5 py-6 sm:py-0 sm:px-8">
+              <p className="font-mono text-4xl font-bold tracking-tight text-[#0F172A]">$910M</p>
+              <p className="mt-1 text-sm font-medium text-[#374151]">in annual fees absorbed by businesses</p>
+              <p className="text-xs text-[#94A3B8]">previously passed to customers</p>
             </div>
-            <div className="flex flex-col gap-1">
-              <p className="font-mono text-3xl font-bold tracking-tight text-[#0F172A]">1 Oct 2026</p>
-              <p className="text-sm font-medium text-[#374151]">effective date</p>
+            <div className="flex flex-col gap-0.5 py-6 sm:py-0 sm:px-8">
+              <p className="font-mono text-4xl font-bold tracking-tight text-[#0F172A]">1 Oct 2026</p>
+              <p className="mt-1 text-sm font-medium text-[#374151]">effective date</p>
               <p className="text-xs text-[#94A3B8]">Visa, Mastercard, eftpos</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How it works — Upgraded visual treatment */}
-      <section id="how-it-works" className="bg-white border-b border-[#E2E8F0]">
+      {/* How it works — numbered rows, no cards */}
+      <section id="how-it-works" className="bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">How it works</p>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">How it works</p>
           <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
             Get your answer in 60 seconds
           </h2>
-          <p className="mt-4 max-w-2xl text-base text-[#6B7280]">
-            No account. No spreadsheet. Just enter two numbers and see exactly what the ban costs you.
-          </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#EFF6FF]">
-                <span className="font-mono text-sm font-bold text-[#2563EB]">1</span>
+          <div className="mt-12 flex flex-col divide-y divide-[#E2E8F0]">
+            <div className="flex items-start gap-8 py-8 first:pt-0">
+              <span className="shrink-0 font-mono text-5xl font-bold text-[#E2E8F0] leading-none select-none">01</span>
+              <div>
+                <p className="text-base font-semibold text-[#0F172A]">Enter your numbers</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#6B7280]">Your monthly card revenue and current bank fee. Two fields. Ten seconds.</p>
               </div>
-              <p className="text-base font-semibold text-[#0F172A]">Enter your numbers</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">Your monthly card revenue and bank fee. Two fields. Ten seconds.</p>
             </div>
-            <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#EFF6FF]">
-                <span className="font-mono text-sm font-bold text-[#2563EB]">2</span>
+            <div className="flex items-start gap-8 py-8">
+              <span className="shrink-0 font-mono text-5xl font-bold text-[#E2E8F0] leading-none select-none">02</span>
+              <div>
+                <p className="text-base font-semibold text-[#0F172A]">See your impact</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#6B7280]">Monthly and annual cost, broken down by card type. Amex and BNPL handled separately — they're still exempt.</p>
               </div>
-              <p className="text-base font-semibold text-[#0F172A]">See your impact</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">Monthly and annual cost, broken down. Amex and BNPL treated separately.</p>
             </div>
-            <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#EFF6FF]">
-                <span className="font-mono text-sm font-bold text-[#2563EB]">3</span>
+            <div className="flex items-start gap-8 py-8">
+              <span className="shrink-0 font-mono text-5xl font-bold text-[#E2E8F0] leading-none select-none">03</span>
+              <div>
+                <p className="text-base font-semibold text-[#0F172A]">Take action</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#6B7280]">Compare processors side-by-side, reprice your menu, or share the result with your accountant.</p>
               </div>
-              <p className="text-base font-semibold text-[#0F172A]">Take action</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">Compare processors, reprice your menu, or share the result with your accountant.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust bar */}
+      {/* Trust bar — inline, no cards */}
       <section className="border-b border-[#E2E8F0] bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">Why trust this</p>
-          <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-6">
-              <p className="font-mono text-2xl font-bold text-[#2563EB]">Free</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#374151]">No account. No paywall. Calculations run entirely in your browser — we never see your numbers.</p>
+        <div className="mx-auto max-w-5xl px-6 py-14">
+          <p className="mb-8 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">Why trust this</p>
+          <div className="grid gap-8 sm:grid-cols-3">
+            <div>
+              <p className="font-semibold text-[#0F172A]">Free, private, no account</p>
+              <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">Calculations run entirely in your browser. We never see your numbers.</p>
             </div>
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-6">
-              <p className="font-mono text-2xl font-bold text-[#0F172A]">{RATES_VERIFIED_DATE}</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#374151]">Processor rates verified against published pricing. Tyro, Zeller, Square, Stripe AU confirmed.</p>
+            <div>
+              <p className="font-semibold text-[#0F172A]">Rates verified {RATES_VERIFIED_DATE}</p>
+              <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">Processor pricing confirmed against published rates for Tyro, Zeller, Square, and Stripe AU.</p>
             </div>
-            <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-6">
-              <p className="font-mono text-2xl font-bold text-[#0F172A]">RBA-sourced</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#374151]">Impact figures from the RBA Payments System Board Conclusions Paper, March 2026.</p>
+            <div>
+              <p className="font-semibold text-[#0F172A]">RBA-sourced figures</p>
+              <p className="mt-2 text-sm leading-relaxed text-[#6B7280]">Impact data from the RBA Payments System Board Conclusions Paper, March 2026. Not guesswork.</p>
             </div>
-          </div>
-          <div className="mt-6 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] px-6 py-5">
-            <p className="text-sm leading-relaxed text-[#374151]">
-              <span className="font-semibold text-[#0F172A]">Built for Australian business owners</span>{" "}after hundreds of r/AusFinance discussions asking the same question: &ldquo;How much will this actually cost me?&rdquo; This tool answers it.
-            </p>
           </div>
         </div>
       </section>
 
       {/* Calculator */}
-      <section id="calculator" className="bg-white scroll-mt-16">
+      <section id="calculator" className="bg-[#F8FAFC] scroll-mt-16">
         <div className="mx-auto max-w-3xl px-6 py-12 sm:py-20">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">Free calculator</p>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#2563EB]">Free calculator</p>
           <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
             Calculate your impact
           </h2>
           <p className="mt-3 text-sm text-[#6B7280]">
-            Calculations run in your browser. We never store your numbers.
+            Runs in your browser. We never store your numbers.
           </p>
           <div className="mt-8 sm:mt-10">
-            <Suspense fallback={<div className="h-64 animate-pulse rounded-lg bg-[#F8FAFC]" />}>
+            <Suspense fallback={<div className="h-64 animate-pulse rounded-lg bg-white" />}>
               <CalculatorWithParams />
             </Suspense>
           </div>
