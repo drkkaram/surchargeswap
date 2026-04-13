@@ -131,8 +131,8 @@ export default function HomePage() {
             From 1 October 2026, the RBA bans surcharges on Visa, Mastercard and eftpos. Every dollar you used to recover from customers becomes a cost you absorb. This calculator tells you exactly how much — and what to do about it.
           </p>
           <p className="mt-3 text-sm text-[#525252]">
-            <span className="font-semibold text-[#0A0A0A]">Join 1,200+ Australian business owners</span>{" "}
-            who&apos;ve already calculated their surcharge impact.
+            <span className="font-semibold text-[#0A0A0A]">436,000 Australian businesses</span>{" "}
+            will be affected. Run your numbers before your accountant does.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-4 sm:mt-8">
             <a
@@ -211,11 +211,10 @@ export default function HomePage() {
             <div>
               <p className="font-mono text-sm font-bold text-[#0EA5E9]">03</p>
               <p className="mt-2 text-sm font-semibold text-[#0A0A0A]">
-                Get your report
+                Take action
               </p>
               <p className="mt-1 text-sm leading-relaxed text-[#525252]">
-                Download a PDF with your full analysis, processor comparison,
-                interchange savings, and a 3-month switchover timeline.
+                Compare processors side-by-side, model a menu price increase, or share the result link with your accountant — all from the same page.
               </p>
             </div>
           </div>

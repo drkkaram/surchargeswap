@@ -281,7 +281,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             Monthly card revenue
           </label>
           <p className="mt-0.5 text-xs text-[#737373]">
-            Your total card sales per month (check your terminal report)
+            Your total card sales per month. Find this in your terminal report or merchant app. Not your cash register total — just card payments.
           </p>
           <div className="relative mt-2">
             <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#525252]">
@@ -312,8 +312,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             Merchant fee (MSF %)
           </label>
           <p className="mt-0.5 text-xs text-[#737373]">
-            The % your bank charges per card transaction. Usually 1.5–2%. Check
-            your last merchant statement.
+            The % your bank or processor charges you per card transaction. Usually 1.5–2%. Find it on your merchant statement (look for &ldquo;MSF rate&rdquo; or &ldquo;blended rate&rdquo;). Not sure? Leave it at 1.7%.
           </p>
           <div className="relative mt-2">
             <input
@@ -357,7 +356,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             </svg>
             Customise card mix &amp; surcharge rate
             <span className="text-xs font-normal text-[#737373]">
-              (optional)
+              — uses café defaults if skipped
             </span>
           </button>
 
@@ -500,7 +499,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                   Surcharge rate you currently charge
                 </label>
                 <p className="mt-0.5 text-xs text-[#737373]">
-                  The % you pass on to customers. Default is 1.5%.
+                  What % surcharge do you add to customer bills today? Usually 1–1.5%. This is the revenue you&apos;ll lose when the ban hits.
                 </p>
                 <div className="relative mt-1.5">
                   <input
