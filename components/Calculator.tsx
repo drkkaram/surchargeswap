@@ -195,7 +195,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
         vals.bnplPct;
       if (currentTotal !== 100) {
         setMixError(
-          `Card mix is currently ${currentTotal}% — adjust to reach 100%`
+          `Card mix is currently ${currentTotal}% (needs to add up to 100%)`
         );
         setShowResult(false);
         // Open the accordion so the user can see the error
@@ -281,7 +281,13 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             Monthly card revenue
           </label>
           <p className="mt-0.5 text-xs text-[#737373]">
-            Your total card sales per month. Find this in your terminal report or merchant app. Not your cash register total — just card payments.
+            Total card sales per month, not cash. Find it in your{" "}
+            <strong className="font-medium text-[#374151]">merchant portal</strong>:{" "}
+            Square Dashboard &rsaquo; Reports &rsaquo; Sales,{" "}
+            Tyro &rsaquo; Merchant Portal &rsaquo; Transactions,{" "}
+            Stripe &rsaquo; Balance &rsaquo; Payouts,{" "}
+            or your bank&apos;s EFTPOS statement under &ldquo;Total card sales&rdquo;.
+            If you&apos;re not sure, check last month&apos;s merchant fee invoice — your total is usually printed there.
           </p>
           <div className="relative mt-2">
             <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#6B7280]">
@@ -312,7 +318,15 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             Merchant fee (MSF %)
           </label>
           <p className="mt-0.5 text-xs text-[#737373]">
-            The % your bank or processor charges you per card transaction. Usually 1.5–2%. Find it on your merchant statement (look for &ldquo;MSF rate&rdquo; or &ldquo;blended rate&rdquo;). Not sure? Leave it at 1.7%.
+            The percentage your processor charges <em>you</em> per transaction (not what you charge customers).
+            Usually 1.3–1.9%. Find it on your{" "}
+            <strong className="font-medium text-[#374151]">monthly merchant fee invoice</strong> — look for
+            &ldquo;MSF rate&rdquo;, &ldquo;blended rate&rdquo;, or &ldquo;service fee %&rdquo;.
+            Not sure? Log in to your processor&apos;s dashboard:{" "}
+            Square &rsaquo; Account &amp; Settings &rsaquo; Pricing,{" "}
+            Tyro &rsaquo; Rates &amp; Fees,{" "}
+            Stripe &rsaquo; Settings &rsaquo; Pricing.
+            If you can&apos;t find it, 1.7% is a safe default.
           </p>
           <div className="relative mt-2">
             <input
@@ -356,7 +370,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             </svg>
             Customise card mix &amp; surcharge rate
             <span className="text-xs font-normal text-[#737373]">
-              — uses café defaults if skipped
+              (uses café defaults if skipped)
             </span>
           </button>
 
@@ -499,7 +513,7 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
                   Surcharge rate you currently charge
                 </label>
                 <p className="mt-0.5 text-xs text-[#737373]">
-                  What % surcharge do you add to customer bills today? Usually 1–1.5%. This is the revenue you&apos;ll lose when the ban hits.
+                  The % surcharge you currently add to customer bills. Usually 1 to 1.5%. This is the revenue you&apos;ll lose when the ban kicks in.
                 </p>
                 <div className="relative mt-1.5">
                   <input
@@ -583,80 +597,40 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
           <EmailCapture result={result} />
 
           {/* Share section */}
-          <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5">
-            <div className="flex items-start gap-3">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2563EB]/10">
-                <svg
-                  className="h-4 w-4 text-[#2563EB]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
-                  />
-                </svg>
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-[#0F172A]">
-                  Share with your accountant
-                </p>
-                <p className="mt-0.5 text-xs text-[#6B7280]">
-                  Send this link to your accountant or bookkeeper — they&apos;ll
-                  see exactly your numbers and results.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    const url = buildShareUrl(result);
-                    navigator.clipboard.writeText(url).then(() => {
-                      setCopied(true);
-                      setTimeout(() => setCopied(false), 2000);
-                    });
-                  }}
-                  className="mt-3 inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition-colors hover:bg-[#F5F5F5]"
-                >
-                  {copied ? (
-                    <>
-                      <svg
-                        className="h-4 w-4 text-[#16A34A]"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 12.75l6 6 9-13.5"
-                        />
-                      </svg>
-                      Link copied!
-                    </>
-                  ) : (
-                    <>
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.06a4.5 4.5 0 00-1.242-7.244l-4.5-4.5a4.5 4.5 0 00-6.364 6.364L4.5 8.25"
-                        />
-                      </svg>
-                      Copy shareable link
-                    </>
-                  )}
-                </button>
-              </div>
+          <div className="flex flex-col gap-2 border-t border-[#E2E8F0] pt-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-[#0F172A]">Share with your accountant</p>
+              <p className="mt-0.5 text-xs text-[#6B7280]">
+                They&apos;ll see your exact numbers and results.
+              </p>
             </div>
+            <button
+              type="button"
+              onClick={() => {
+                const url = buildShareUrl(result);
+                navigator.clipboard.writeText(url).then(() => {
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                });
+              }}
+              className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition-colors hover:bg-[#F8FAFC] hover:border-[#CBD5E1]"
+            >
+              {copied ? (
+                <>
+                  <svg className="h-4 w-4 text-[#16A34A]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  Copied!
+                </>
+              ) : (
+                <>
+                  <svg className="h-4 w-4 text-[#6B7280]" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.06a4.5 4.5 0 00-1.242-7.244l-4.5-4.5a4.5 4.5 0 00-6.364 6.364L4.5 8.25" />
+                  </svg>
+                  Copy link
+                </>
+              )}
+            </button>
           </div>
 
           <p className="text-xs text-[#737373]">

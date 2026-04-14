@@ -137,7 +137,7 @@ export default function HomePage() {
             >
               From 1 October 2026, the RBA bans surcharges on Visa, Mastercard and eftpos. Every
               dollar you recovered from customers becomes a cost you absorb. This calculator tells
-              you exactly how much — and what to do about it.
+              you exactly how much, and what to do about it.
             </p>
 
             <p
@@ -212,7 +212,7 @@ export default function HomePage() {
               {
                 n: "02",
                 title: "See your impact",
-                body: "Monthly and annual cost, broken down by card type. Amex and BNPL handled separately — they're still exempt.",
+                body: "Monthly and annual cost, broken down by card type. Amex and BNPL are still exempt so they're handled separately.",
               },
               {
                 n: "03",
