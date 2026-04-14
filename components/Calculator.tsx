@@ -281,13 +281,8 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             Monthly card revenue
           </label>
           <p className="mt-0.5 text-xs text-[#737373]">
-            Total card sales per month, not cash. Find it in your{" "}
-            <strong className="font-medium text-[#374151]">merchant portal</strong>:{" "}
-            Square Dashboard &rsaquo; Reports &rsaquo; Sales,{" "}
-            Tyro &rsaquo; Merchant Portal &rsaquo; Transactions,{" "}
-            Stripe &rsaquo; Balance &rsaquo; Payouts,{" "}
-            or your bank&apos;s EFTPOS statement under &ldquo;Total card sales&rdquo;.
-            If you&apos;re not sure, check last month&apos;s merchant fee invoice — your total is usually printed there.
+            Total card sales per month (not cash). Find it in your processor&apos;s app or dashboard — look for &ldquo;Reports&rdquo; or &ldquo;Transactions&rdquo;.
+            Or grab it off last month&apos;s merchant fee invoice, where your total card volume is usually printed.
           </p>
           <div className="relative mt-2">
             <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#6B7280]">
@@ -318,15 +313,10 @@ export function Calculator({ initialValues, autoSubmit }: CalculatorProps) {
             Merchant fee (MSF %)
           </label>
           <p className="mt-0.5 text-xs text-[#737373]">
-            The percentage your processor charges <em>you</em> per transaction (not what you charge customers).
-            Usually 1.3–1.9%. Find it on your{" "}
-            <strong className="font-medium text-[#374151]">monthly merchant fee invoice</strong> — look for
-            &ldquo;MSF rate&rdquo;, &ldquo;blended rate&rdquo;, or &ldquo;service fee %&rdquo;.
-            Not sure? Log in to your processor&apos;s dashboard:{" "}
-            Square &rsaquo; Account &amp; Settings &rsaquo; Pricing,{" "}
-            Tyro &rsaquo; Rates &amp; Fees,{" "}
-            Stripe &rsaquo; Settings &rsaquo; Pricing.
-            If you can&apos;t find it, 1.7% is a safe default.
+            The percentage your processor charges <em>you</em> per transaction (not what you charge customers). Usually 1.3–1.9%.
+            Find it on your monthly merchant fee invoice — look for &ldquo;MSF rate&rdquo;, &ldquo;blended rate&rdquo;, or &ldquo;service fee %&rdquo;.
+            Or log in to your processor&apos;s dashboard and look under Account Settings or Pricing.
+            Can&apos;t find it? 1.7% is a safe default.
           </p>
           <div className="relative mt-2">
             <input
