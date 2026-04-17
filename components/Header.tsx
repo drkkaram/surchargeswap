@@ -7,37 +7,37 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#1E293B] bg-[#0F172A]">
+    <header className="sticky top-0 z-50 border-b border-[#E5E5E0] bg-white">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="font-sans text-lg font-bold tracking-wide text-white"
+          className="font-sans text-lg font-bold tracking-wide text-[#0B1C3D]"
         >
-          Surcharge<span className="text-[#F97316]">Swap</span>
+          Surcharge<span className="text-[#E8651A]">Swap</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
           <Link
             href="/"
-            className="text-sm font-medium text-[#94A3B8] transition-colors hover:text-white"
+            className="text-sm font-medium text-[#6B7280] transition-colors hover:text-[#0B1C3D]"
           >
             Calculator
           </Link>
           <Link
             href="/compare"
-            className="text-sm font-medium text-[#94A3B8] transition-colors hover:text-white"
+            className="text-sm font-medium text-[#6B7280] transition-colors hover:text-[#0B1C3D]"
           >
             Compare
           </Link>
           <Link
             href="/guide"
-            className="text-sm font-medium text-[#94A3B8] transition-colors hover:text-white"
+            className="text-sm font-medium text-[#6B7280] transition-colors hover:text-[#0B1C3D]"
           >
             Guide
           </Link>
           <Link
             href="/#calculator"
-            className="rounded-xl bg-[#2563EB] px-4 py-2 text-sm font-medium text-white shadow-sm shadow-[#2563EB]/20 transition-colors hover:bg-[#1D4ED8]"
+            className="rounded-md bg-[#E8651A] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#C4541A]"
           >
             Calculate now
           </Link>
@@ -50,44 +50,44 @@ export function Header() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block h-0.5 w-5 bg-white transition-transform ${mobileOpen ? "translate-y-1.5 rotate-45" : ""}`}
+            className={`block h-0.5 w-5 bg-[#0B1C3D] transition-transform ${mobileOpen ? "translate-y-1.5 rotate-45" : ""}`}
           />
           <span
-            className={`block h-0.5 w-5 bg-white transition-opacity ${mobileOpen ? "opacity-0" : ""}`}
+            className={`block h-0.5 w-5 bg-[#0B1C3D] transition-opacity ${mobileOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`block h-0.5 w-5 bg-white transition-transform ${mobileOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
+            className={`block h-0.5 w-5 bg-[#0B1C3D] transition-transform ${mobileOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
           />
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-[#1E293B] px-6 pb-4 pt-2 md:hidden">
+        <div className="border-t border-[#E5E5E0] px-6 pb-4 pt-2 md:hidden">
           <nav className="flex flex-col gap-3">
             <Link
               href="/"
-              className="text-sm font-medium text-[#94A3B8]"
+              className="text-sm font-medium text-[#6B7280]"
               onClick={() => setMobileOpen(false)}
             >
               Calculator
             </Link>
             <Link
               href="/compare"
-              className="text-sm font-medium text-[#94A3B8]"
+              className="text-sm font-medium text-[#6B7280]"
               onClick={() => setMobileOpen(false)}
             >
               Compare
             </Link>
             <Link
               href="/guide"
-              className="text-sm font-medium text-[#94A3B8]"
+              className="text-sm font-medium text-[#6B7280]"
               onClick={() => setMobileOpen(false)}
             >
               Guide
             </Link>
             <Link
               href="/#calculator"
-              className="inline-block rounded-xl bg-[#2563EB] px-4 py-2 text-center text-sm font-medium text-white shadow-sm shadow-[#2563EB]/20"
+              className="inline-block rounded-md bg-[#E8651A] px-4 py-2 text-center text-sm font-medium text-white"
               onClick={() => setMobileOpen(false)}
             >
               Calculate now

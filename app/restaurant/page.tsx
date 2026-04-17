@@ -26,7 +26,7 @@ export default function RestaurantPage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
       <div className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           RBA Surcharge Ban Calculator for Restaurants
         </h1>
         <p className="mt-4 text-lg text-[#525252]">
@@ -35,7 +35,7 @@ export default function RestaurantPage() {
         <p className="mt-3 text-base text-[#525252]">
           The calculator pre-fills with typical AU restaurant averages. Enter your own numbers for a precise result.
         </p>
-        <div className="mt-4 rounded-sm border border-[#0EA5E9]/30 bg-[#0EA5E9]/5 p-4 text-sm text-[#0369A1]">
+        <div className="mt-4 rounded-md border border-[#E8651A]/30 bg-[#E8651A]/5 p-4 text-sm text-[#C4541A]">
           <strong>Restaurant note:</strong> Amex surcharging remains permitted after October 2026. Ensure your POS supports selective surcharging by card network.
         </div>
       </div>

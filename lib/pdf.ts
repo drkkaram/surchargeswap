@@ -14,7 +14,7 @@ const BODY   = "#374151";
 const MUTED  = "#6B7280";
 const WHITE  = "#FFFFFF";
 const GREEN  = "#065F46";
-const GREEN_BG = "#D1FAE5";
+
 const RED_LIGHT = "#FEF2F2";
 const RED_TEXT  = "#991B1B";
 
@@ -137,7 +137,7 @@ function createDoc() {
     doc.setLineWidth(0.3);
     doc.setFillColor(...hex(WHITE));
     doc.rect(MARGIN_L + indent, y - 3, 3, 3, "FD");
-    doc.text(text, MARGIN_L + indent + 4.5, y);
+    doc.text(text, MARGIN_L + indent + 4.5, y - 0.8);
     y += 4.8;
   }
 
@@ -167,10 +167,6 @@ function drawPageHeader(ctx: ReturnType<typeof createDoc>, generatedAt: string) 
   doc.setFont("helvetica", "bold");
   doc.setTextColor(...hex(WHITE));
   doc.text("SurchargeSwap", MARGIN_L, 13);
-
-  // Orange accent dot
-  doc.setFillColor(...hex(ORANGE));
-  doc.circle(MARGIN_L + 76, 10, 1, "F");
 
   // Report label (right-aligned)
   doc.setFontSize(8);
@@ -240,8 +236,14 @@ function drawImpactHero(ctx: ReturnType<typeof createDoc>, result: CalculatorRes
 
 // ─── Inputs summary box ─────────────────────────────────────────────────────
 function drawInputsBox(ctx: ReturnType<typeof createDoc>, result: CalculatorResult) {
-  const { doc, fillRect, kv, gap } = ctx;
-  const boxH = 44;
+  const { doc, fillRect, gap } = ctx;
+  
+  // Bug 1 fix: Calculate dynamic box height based on actual content
+  const col1Items = 3; // Monthly revenue, Visa/MC, eftpos
+  const col2Items = 4; // Amex, BNPL, Surcharge %, MSF %
+  const maxRows = Math.max(col1Items, col2Items);
+  const boxH = 5 + 5 + maxRows * 4.5 + 5; // topPad + headerH + rows + bottomPad
+  
   fillRect(MARGIN_L, ctx.y, CONTENT_W, boxH, CREAM, BORDER, 2);
   ctx.y += 5;
 
@@ -278,6 +280,7 @@ function drawInputsBox(ctx: ReturnType<typeof createDoc>, result: CalculatorResu
     ["Amex", `${result.inputs.amexPct}%`],
     ["BNPL", `${result.inputs.bnplPct}%`],
     ["Current surcharge", `${result.inputs.currentSurchargePct}%`],
+    ["Current MSF", `${result.inputs.currentMsfPct}%`], // Bug 2 fix: Added missing MSF row
   ];
   for (const [l, v] of inputs2) {
     doc.setFontSize(8);
@@ -290,9 +293,9 @@ function drawInputsBox(ctx: ReturnType<typeof createDoc>, result: CalculatorResu
     ctx.y += 4.5;
   }
 
-  // advance past box
+  // Bug 3 fix: Cursor now correctly accounts for all rows (inputs2 now has 4 items)
   const endY = startY + Math.max(inputs1.length, inputs2.length) * 4.5;
-  ctx.y = endY + 4;
+  ctx.y = endY + 4; // 4mm bottom padding inside box
   gap(6);
 }
 
@@ -511,7 +514,7 @@ function drawStatBoxes(ctx: ReturnType<typeof createDoc>, stats: { label: string
 // ─── Main export ─────────────────────────────────────────────────────────────
 export function generateReportPdf(result: CalculatorResult): string {
   const ctx = createDoc();
-  const { doc, gap, heading2, body, bodyBold, kv, divider } = ctx;
+  const { doc, gap, heading2, body, kv, divider } = ctx;
 
   const now = new Date();
   const generatedAt = now.toLocaleDateString("en-AU", {
@@ -533,7 +536,6 @@ export function generateReportPdf(result: CalculatorResult): string {
 
   kv("Covered card revenue",    formatCurrency(result.coveredCardRevenue) + "/mo");
   kv("Surcharge revenue lost",  `-${formatCurrency(result.surchargeRevenueLost)}/mo`, MUTED, "#991B1B");
-  kv("MSF you'll absorb",       `-${formatCurrency(result.msfToAbsorb)}/mo`,          MUTED, "#991B1B");
   kv("Net monthly hit",         `-${formatCurrency(result.netMonthlyImpact)}/mo`,     MUTED, "#991B1B");
   kv("Annual equivalent",       `-${formatCurrency(result.annualImpact)}/yr`,          MUTED, "#991B1B");
   gap(6);
@@ -610,8 +612,10 @@ export function generateReportPdf(result: CalculatorResult): string {
     const topNote = top.monthlySaving > 0
       ? `Saves you ${formatCurrency(top.monthlySaving)}/mo (${formatCurrency(top.annualSaving)}/yr) vs your current setup. ${top.processor.bestFor}`
       : `${top.processor.bestFor}`;
-    d.text(topNote, MARGIN_L + 4, ctx.y + 12, { maxWidth: CONTENT_W - 8 });
-    ctx.y += 18;
+    const topNoteLines = d.splitTextToSize(topNote, CONTENT_W - 8) as string[];
+    d.text(topNoteLines, MARGIN_L + 4, ctx.y + 12);
+    const calloutH = Math.max(18, 10 + topNoteLines.length * 4.5);
+    ctx.y += calloutH;
     gap(5);
   }
 

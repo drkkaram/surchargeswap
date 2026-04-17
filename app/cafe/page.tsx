@@ -26,7 +26,7 @@ export default function CafePage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
       <div className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           RBA Surcharge Ban Calculator for Cafes
         </h1>
         <p className="mt-4 text-lg text-[#525252]">
@@ -35,7 +35,7 @@ export default function CafePage() {
         <p className="mt-3 text-base text-[#525252]">
           Use the calculator below to see your exact impact — and compare processors to find a cheaper MSF rate that reduces the hit.
         </p>
-        <div className="mt-4 rounded-sm border border-[#F59E0B]/30 bg-[#F59E0B]/5 p-4 text-sm text-[#92400E]">
+        <div className="mt-4 rounded-md border border-[#F59E0B]/30 bg-[#F59E0B]/5 p-4 text-sm text-[#92400E]">
           <strong>Tip for cafes:</strong> Tyro&apos;s cost-plus pricing typically saves hospitality businesses the most — but factor in the 12-month lock-in before switching.
         </div>
       </div>

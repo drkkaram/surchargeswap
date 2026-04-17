@@ -83,10 +83,10 @@ function Section({
   return (
     <section id={id} className="space-y-4">
       <div className="flex items-baseline gap-3">
-        <span className="font-mono text-sm font-bold text-[#0EA5E9]">
+        <span className="font-mono text-sm font-bold text-[#E8651A]">
           {number}
         </span>
-        <h2 className="text-xl font-semibold tracking-tight text-[#0A0A0A] sm:text-2xl">
+        <h2 className="font-serif text-xl font-normal tracking-tight text-[#0B1C3D] sm:text-2xl">
           {title}
         </h2>
       </div>
@@ -99,13 +99,13 @@ function Section({
 
 export default function GuidePage() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-[#F5F5F0]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <div className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           The RBA Surcharge Ban: A Complete Guide for Australian Businesses
           (2026)
         </h1>
@@ -123,7 +123,7 @@ export default function GuidePage() {
             <nav className="sticky top-8 space-y-1">
               <p className="text-xs font-medium uppercase tracking-widest text-[#525252] mb-3">Contents</p>
               {sections.map(s => (
-                <a key={s.id} href={`#${s.id}`} className="block text-sm text-[#525252] hover:text-[#0A0A0A] py-0.5">
+                <a key={s.id} href={`#${s.id}`} className="block text-sm text-[#525252] hover:text-[#0B1C3D] py-0.5">
                   {s.number}. {s.title}
                 </a>
               ))}
@@ -210,7 +210,7 @@ export default function GuidePage() {
               surcharges.
             </p>
             <p>
-              <strong className="text-[#0A0A0A]">Action item:</strong> Review
+              <strong className="text-[#0B1C3D]">Action item:</strong> Review
               your Amex volume and ensure your POS system can apply surcharges
               selectively by card network.
             </p>
@@ -243,7 +243,7 @@ export default function GuidePage() {
                 href="https://www.rba.gov.au"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+                className="font-medium text-[#E8651A] hover:text-[#C4541A]"
               >
                 rba.gov.au
               </a>
@@ -256,8 +256,8 @@ export default function GuidePage() {
               Every business affected by the ban has three strategic choices:
             </p>
             <div className="space-y-4 pt-2">
-              <div className="border-l-2 border-[#0EA5E9] pl-4">
-                <p className="font-semibold text-[#0A0A0A]">
+              <div className="border-l-2 border-[#E8651A] pl-4">
+                <p className="font-semibold text-[#0B1C3D]">
                   Option 1: Absorb the cost
                 </p>
                 <p>
@@ -267,8 +267,8 @@ export default function GuidePage() {
                   1.5% surcharge, this means losing $675/month ($8,100/year).
                 </p>
               </div>
-              <div className="border-l-2 border-[#0EA5E9] pl-4">
-                <p className="font-semibold text-[#0A0A0A]">
+              <div className="border-l-2 border-[#E8651A] pl-4">
+                <p className="font-semibold text-[#0B1C3D]">
                   Option 2: Switch processors
                 </p>
                 <p>
@@ -279,8 +279,8 @@ export default function GuidePage() {
                   one-time effort to switch but delivers ongoing savings.
                 </p>
               </div>
-              <div className="border-l-2 border-[#0EA5E9] pl-4">
-                <p className="font-semibold text-[#0A0A0A]">
+              <div className="border-l-2 border-[#E8651A] pl-4">
+                <p className="font-semibold text-[#0B1C3D]">
                   Option 3: Reprice your products
                 </p>
                 <p>
@@ -295,7 +295,7 @@ export default function GuidePage() {
               Most businesses will use a combination. The{" "}
               <Link
                 href="/"
-                className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+                className="font-medium text-[#E8651A] hover:text-[#C4541A]"
               >
                 calculator
               </Link>{" "}
@@ -306,7 +306,7 @@ export default function GuidePage() {
           <Section number="06" title="How to switch payment processors — step by step" id="section-06">
             <ol className="list-inside list-decimal space-y-2 pl-2">
               <li>
-                <strong className="text-[#0A0A0A]">
+                <strong className="text-[#0B1C3D]">
                   Check your current contract.
                 </strong>{" "}
                 Review your existing processor agreement for lock-in periods,
@@ -314,13 +314,13 @@ export default function GuidePage() {
                 require 30 to 90 days notice.
               </li>
               <li>
-                <strong className="text-[#0A0A0A]">
+                <strong className="text-[#0B1C3D]">
                   Compare actual costs.
                 </strong>{" "}
                 Use the{" "}
                 <Link
                   href="/compare"
-                  className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+                  className="font-medium text-[#E8651A] hover:text-[#C4541A]"
                 >
                   processor comparison
                 </Link>{" "}
@@ -328,20 +328,20 @@ export default function GuidePage() {
                 monthly fees, terminal costs, and contract length.
               </li>
               <li>
-                <strong className="text-[#0A0A0A]">
+                <strong className="text-[#0B1C3D]">
                   Contact your top 2 choices.
                 </strong>{" "}
                 Request a formal quote with your specific volume. Published
                 rates are standard; many processors negotiate for higher volumes.
               </li>
               <li>
-                <strong className="text-[#0A0A0A]">Order equipment early.</strong>{" "}
+                <strong className="text-[#0B1C3D]">Order equipment early.</strong>{" "}
                 Terminal delivery and setup can take 1 to 3 weeks. Plan for
                 overlap with your existing terminal so there&apos;s no gap in
                 payment acceptance.
               </li>
               <li>
-                <strong className="text-[#0A0A0A]">
+                <strong className="text-[#0B1C3D]">
                   Verify settlement timing.
                 </strong>{" "}
                 Settlement terms vary from same-day (Tyro, Zeller) to T+2
@@ -349,7 +349,7 @@ export default function GuidePage() {
                 your cash flow needs.
               </li>
               <li>
-                <strong className="text-[#0A0A0A]">
+                <strong className="text-[#0B1C3D]">
                   Cancel your old processor.
                 </strong>{" "}
                 Send written notice within the contract&apos;s required period.
@@ -365,7 +365,7 @@ export default function GuidePage() {
               surcharge ban but creates an important opportunity.
             </p>
             <p>
-              <strong className="text-[#0A0A0A]">Cost-plus processors</strong>{" "}
+              <strong className="text-[#0B1C3D]">Cost-plus processors</strong>{" "}
               (like Tyro and most traditional bank merchant facilities) charge
               you the actual interchange fee plus a fixed margin. When
               interchange drops, your rate drops automatically. At $50,000/month
@@ -373,7 +373,7 @@ export default function GuidePage() {
               $250/month.
             </p>
             <p>
-              <strong className="text-[#0A0A0A]">
+              <strong className="text-[#0B1C3D]">
                 Blended flat-rate processors
               </strong>{" "}
               (like Zeller, Square, Stripe) charge a single percentage regardless
@@ -382,7 +382,7 @@ export default function GuidePage() {
               rate.
             </p>
             <p>
-              <strong className="text-[#0A0A0A]">The question to ask:</strong>{" "}
+              <strong className="text-[#0B1C3D]">The question to ask:</strong>{" "}
               &ldquo;Do you use cost-plus pricing or blended flat rate? Will I
               automatically benefit from the RBA interchange reduction?&rdquo;
             </p>
@@ -394,8 +394,8 @@ export default function GuidePage() {
 
           <Section number="08" title="Timeline and action checklist" id="section-08">
             <div className="space-y-4 pt-2">
-              <div className="border-l-2 border-[#E5E5E5] pl-4">
-                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+              <div className="border-l-2 border-[#E5E5E0] pl-4">
+                <p className="font-mono text-xs font-bold text-[#E8651A]">
                   JUNE 2026
                 </p>
                 <ul className="mt-1 list-inside list-disc space-y-1">
@@ -406,8 +406,8 @@ export default function GuidePage() {
                   </li>
                 </ul>
               </div>
-              <div className="border-l-2 border-[#E5E5E5] pl-4">
-                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+              <div className="border-l-2 border-[#E5E5E0] pl-4">
+                <p className="font-mono text-xs font-bold text-[#E8651A]">
                   JULY 2026
                 </p>
                 <ul className="mt-1 list-inside list-disc space-y-1">
@@ -422,8 +422,8 @@ export default function GuidePage() {
                   </li>
                 </ul>
               </div>
-              <div className="border-l-2 border-[#E5E5E5] pl-4">
-                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+              <div className="border-l-2 border-[#E5E5E0] pl-4">
+                <p className="font-mono text-xs font-bold text-[#E8651A]">
                   AUGUST 2026
                 </p>
                 <ul className="mt-1 list-inside list-disc space-y-1">
@@ -435,8 +435,8 @@ export default function GuidePage() {
                   </li>
                 </ul>
               </div>
-              <div className="border-l-2 border-[#E5E5E5] pl-4">
-                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+              <div className="border-l-2 border-[#E5E5E0] pl-4">
+                <p className="font-mono text-xs font-bold text-[#E8651A]">
                   SEPTEMBER 2026
                 </p>
                 <ul className="mt-1 list-inside list-disc space-y-1">
@@ -478,7 +478,7 @@ export default function GuidePage() {
                 },
                 {
                   q: "What happens if I keep surcharging after October 2026?",
-                  a: <>The ACCC will enforce the ban. Penalties for non-compliance include fines and infringement notices. Consumers can lodge complaints directly with the ACCC. See our <Link href="/enforcement-faq" className="font-medium text-[#0EA5E9] hover:text-[#0284C7]">enforcement FAQ</Link> for details.</>,
+                  a: <>The ACCC will enforce the ban. Penalties for non-compliance include fines and infringement notices. Consumers can lodge complaints directly with the ACCC. See our <Link href="/enforcement-faq" className="font-medium text-[#E8651A] hover:text-[#C4541A]">enforcement FAQ</Link> for details.</>,
                 },
                 {
                   q: "Will the ban reduce my processing fees?",
@@ -510,7 +510,7 @@ export default function GuidePage() {
                 },
               ].map((faq) => (
                 <div key={faq.q}>
-                  <p className="font-semibold text-[#0A0A0A]">{faq.q}</p>
+                  <p className="font-semibold text-[#0B1C3D]">{faq.q}</p>
                   <p className="mt-1">{faq.a}</p>
                 </div>
               ))}
@@ -519,8 +519,8 @@ export default function GuidePage() {
           </div>
         </div>
 
-        <div className="mt-12 border border-[#E5E5E5] bg-white p-6 rounded-sm">
-          <p className="text-sm font-semibold text-[#0A0A0A]">
+        <div className="mt-12 border border-[#E5E5E0] bg-white p-6 rounded-md">
+          <p className="text-sm font-semibold text-[#0B1C3D]">
             Ready to calculate your impact?
           </p>
           <p className="mt-1 text-sm text-[#525252]">
@@ -529,7 +529,7 @@ export default function GuidePage() {
           </p>
           <Link
             href="/"
-            className="mt-4 inline-block rounded-md bg-[#0EA5E9] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+            className="mt-4 inline-block rounded-md bg-[#E8651A] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#C4541A]"
           >
             Calculate now &rarr;
           </Link>

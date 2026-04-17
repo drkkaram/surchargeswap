@@ -26,7 +26,7 @@ export default function RetailPage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
       <div className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           RBA Surcharge Ban Calculator for Retail
         </h1>
         <p className="mt-4 text-lg text-[#525252]">
@@ -35,7 +35,7 @@ export default function RetailPage() {
         <p className="mt-3 text-base text-[#525252]">
           Retail businesses typically have a higher eftpos mix than hospitality — adjust the card mix below to match your actual split for a precise estimate.
         </p>
-        <div className="mt-4 rounded-sm border border-[#22C55E]/30 bg-[#22C55E]/5 p-4 text-sm text-[#166534]">
+        <div className="mt-4 rounded-md border border-[#22C55E]/30 bg-[#22C55E]/5 p-4 text-sm text-[#166534]">
           <strong>Retail tip:</strong> If you do significant online sales, compare Stripe (1.5% flat, no lock-in) against Zeller for the full picture.
         </div>
       </div>

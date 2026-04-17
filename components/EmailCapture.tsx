@@ -75,36 +75,46 @@ export function EmailCapture({ result }: EmailCaptureProps) {
 
   if (status === "sent") {
     return (
-      <div className="bg-green-50 border-l-4 border-[#16A34A] pl-6 p-6 rounded-xl">
-        <p className="text-sm font-semibold text-[#16A34A]">Report sent</p>
-        <p className="mt-1 text-sm text-[#374151]">
+      <div className="bg-[#D1FAE5] border-l-4 border-[#16A34A] pl-6 p-6 rounded-md">
+        <p className="text-sm font-semibold text-[#065F46]">Report sent</p>
+        <p className="mt-1 text-sm text-[#4A5568]">
           Check your inbox for your SurchargeSwap report with full analysis,
           processor comparison, interchange savings breakdown, and a 3-month
           switchover timeline.
         </p>
+        <button
+          type="button"
+          onClick={() => {
+            setStatus("idle");
+            setEmail("");
+          }}
+          className="mt-3 text-xs font-medium text-[#065F46] underline hover:text-[#0B1C3D]"
+        >
+          Send to another address
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="bg-slate-50 rounded-xl p-6 border-0">
-      <p className="text-base font-semibold text-[#0F172A]">
+    <div className="bg-[#F5F5F0] rounded-md border border-[#E5E5E0] p-6">
+      <p className="text-base font-semibold text-[#0B1C3D]">
         Get your full analysis as a PDF
       </p>
-      <p className="mt-1 text-sm text-[#374151]">
-        We'll email you a PDF copy of your full calculation. No marketing list, no spam, report delivery only.
+      <p className="mt-1 text-sm text-[#4A5568]">
+        We&apos;ll email you a PDF copy of your full calculation. No marketing list, no spam, report delivery only.
       </p>
 
       <button
         type="button"
         onClick={handleDownload}
-        className="mt-4 w-full rounded-md bg-[#0F172A] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#374151] sm:w-auto"
+        className="mt-4 w-full rounded-md bg-[#0B1C3D] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#374151] sm:w-auto"
       >
         Download PDF report
       </button>
 
-      <div className="mt-5 border-t border-[#E2E8F0] pt-5">
-        <p className="text-sm text-[#374151]">
+      <div className="mt-5 border-t border-[#E5E5E0] pt-5">
+        <p className="text-sm text-[#4A5568]">
           Or email it to yourself:
         </p>
         <form
@@ -118,12 +128,12 @@ export function EmailCapture({ result }: EmailCaptureProps) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             aria-label="Email address for report delivery"
-            className="flex-1 rounded-md border border-[#E2E8F0] bg-[#F8FAFC] px-4 py-2.5 text-sm text-[#0F172A] placeholder:text-[#374151]/50 focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB]"
+            className="flex-1 rounded-md border border-[#E5E5E0] bg-white px-4 py-2.5 text-sm text-[#0B1C3D] placeholder:text-[#6B7280] focus:border-[#E8651A] focus:outline-none focus:ring-1 focus:ring-[#E8651A]/30"
           />
           <button
             type="submit"
             disabled={status === "sending"}
-            className="rounded-md bg-[#2563EB] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1D4ED8] disabled:opacity-50"
+            className="rounded-md bg-[#E8651A] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#C4541A] disabled:opacity-50"
           >
             {status === "sending" ? "Sending..." : "Send my report"}
           </button>
@@ -131,24 +141,24 @@ export function EmailCapture({ result }: EmailCaptureProps) {
 
         {(status === "error" || status === "fallback") && (
           <p
-            className={`mt-2 text-sm ${status === "fallback" ? "text-[#374151]" : "text-[#DC2626]"}`}
+            className={`mt-2 text-sm ${status === "fallback" ? "text-[#4A5568]" : "text-[#DC2626]"}`}
           >
             {errorMessage}
           </p>
         )}
       </div>
 
-      <div className="mt-4 border-t border-[#E2E8F0] pt-4">
-        <p className="text-xs text-[#374151]">
-          <span className="font-medium text-[#0F172A]">Coming soon:</span>{" "}
+      <div className="mt-4 border-t border-[#E5E5E0] pt-4">
+        <p className="text-xs text-[#4A5568]">
+          <span className="font-medium text-[#0B1C3D]">Coming soon:</span>{" "}
           Ongoing processor rate monitoring: we alert you when a cheaper deal appears.{" "}
-          <a href="mailto:waitlist@surchargeswap.com.au?subject=Rate%20Monitor%20Waitlist" className="underline text-[#2563EB]">
+          <a href="mailto:waitlist@surchargeswap.com.au?subject=Rate%20Monitor%20Waitlist" className="underline text-[#E8651A]">
             Join the waitlist
           </a>
         </p>
       </div>
 
-      <p className="mt-3 text-xs text-[#374151]">
+      <p className="mt-3 text-xs text-[#4A5568]">
         Includes: processor comparison, interchange saving breakdown, and a
         3-month switchover timeline. Estimated impact:{" "}
         <span className="font-mono font-semibold">

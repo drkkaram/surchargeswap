@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+      <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
         Terms of Use
       </h1>
       <p className="mt-2 text-sm text-[#525252]">
@@ -19,7 +19,7 @@ export default function TermsPage() {
 
       <div className="mt-10 space-y-8 text-sm leading-relaxed text-[#525252]">
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             1. About This Site
           </h2>
           <p className="mt-2">
@@ -31,24 +31,24 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             2. Information Only — Not Financial Advice
           </h2>
           <p className="mt-2">
             Everything on this site is{" "}
-            <strong className="text-[#0A0A0A]">general information</strong>,
+            <strong className="text-[#0B1C3D]">general information</strong>,
             not financial, legal, or business advice.
           </p>
           <p className="mt-2">
             The fee calculator generates{" "}
-            <strong className="text-[#0A0A0A]">estimates only</strong>, based
+            <strong className="text-[#0B1C3D]">estimates only</strong>, based
             on the inputs you provide and publicly available standard rates.
             Your actual fees will depend on your specific merchant agreement,
             card mix, transaction types, and any rates you&apos;ve negotiated
             directly with a processor.
           </p>
           <p className="mt-2">
-            <strong className="text-[#0A0A0A]">
+            <strong className="text-[#0B1C3D]">
               Before making any decision about changing your payment processor,
               contact the providers directly and confirm current pricing.
             </strong>
@@ -56,13 +56,13 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             3. No Warranty on Fee Accuracy
           </h2>
           <p className="mt-2">
             Payment processor fees change frequently. We do our best to keep
             fee data current, but we make{" "}
-            <strong className="text-[#0A0A0A]">no guarantee</strong> that the
+            <strong className="text-[#0B1C3D]">no guarantee</strong> that the
             information on this site is accurate, complete, or up to date at
             the time you read it.
           </p>
@@ -80,7 +80,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             4. Affiliate Relationships
           </h2>
           <p className="mt-2">
@@ -89,7 +89,7 @@ export default function TermsPage() {
             relationships are disclosed on our{" "}
             <a
               href="/affiliate-disclosure"
-              className="text-[#0A0A0A] underline underline-offset-2 hover:text-[#525252]"
+              className="text-[#0B1C3D] underline underline-offset-2 hover:text-[#525252]"
             >
               Affiliate Disclosure
             </a>{" "}
@@ -97,7 +97,7 @@ export default function TermsPage() {
           </p>
           <p className="mt-2">
             Affiliate relationships do{" "}
-            <strong className="text-[#0A0A0A]">not</strong> influence the fee
+            <strong className="text-[#0B1C3D]">not</strong> influence the fee
             estimates shown in the calculator — all estimates use published
             standard rates. We do not rank or recommend processors based on
             commission rates.
@@ -105,7 +105,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             5. RBA Regulatory Information
           </h2>
           <p className="mt-2">
@@ -115,7 +115,7 @@ export default function TermsPage() {
             regulatory position.
           </p>
           <p className="mt-2">
-            <strong className="text-[#0A0A0A]">
+            <strong className="text-[#0B1C3D]">
               Do not rely on this site for legal compliance advice.
             </strong>{" "}
             If you need to understand your obligations under the surcharge ban,
@@ -124,7 +124,7 @@ export default function TermsPage() {
               href="https://www.rba.gov.au"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#0A0A0A] underline underline-offset-2 hover:text-[#525252]"
+              className="text-[#0B1C3D] underline underline-offset-2 hover:text-[#525252]"
             >
               RBA&apos;s official guidance
             </a>{" "}
@@ -133,7 +133,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             6. Your Obligations
           </h2>
           <p className="mt-2">By using this site, you agree to:</p>
@@ -151,7 +151,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             7. Privacy
           </h2>
           <p className="mt-2">
@@ -160,7 +160,7 @@ export default function TermsPage() {
             processors for marketing purposes. See our full{" "}
             <a
               href="/privacy"
-              className="text-[#0A0A0A] underline underline-offset-2 hover:text-[#525252]"
+              className="text-[#0B1C3D] underline underline-offset-2 hover:text-[#525252]"
             >
               Privacy Policy
             </a>
@@ -169,7 +169,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             8. Limitation of Liability
           </h2>
           <p className="mt-2">
@@ -180,7 +180,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             9. Governing Law
           </h2>
           <p className="mt-2">
@@ -191,33 +191,33 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-semibold text-[#0A0A0A]">
+          <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
             10. Contact
           </h2>
           <p className="mt-2">
             Questions about these terms? Contact us at:{" "}
             <a
               href="mailto:contact@surchargeswap.com.au"
-              className="text-[#0A0A0A] underline underline-offset-2 hover:text-[#525252]"
+              className="text-[#0B1C3D] underline underline-offset-2 hover:text-[#525252]"
             >
               contact@surchargeswap.com.au
             </a>
           </p>
         </section>
 
-        <p className="border-t border-[#E5E5E5] pt-6 text-xs text-[#525252]">
+        <p className="border-t border-[#E5E5E0] pt-6 text-xs text-[#525252]">
           SurchargeSwap is an independent comparison service. We are not
           affiliated with any payment processor.
         </p>
       </div>
 
-      <div className="mt-12 rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-6 text-center">
+      <div className="mt-12 rounded-lg border border-[#E5E5E0] bg-[#F5F5F0] p-6 text-center">
         <p className="text-sm text-[#525252]">
           Ready to calculate your surcharge ban impact?
         </p>
         <a
           href="/"
-          className="mt-3 inline-block rounded-md bg-[#0A0A0A] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#525252]"
+          className="mt-3 inline-block rounded-md bg-[#0B1C3D] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#525252]"
         >
           Use the free calculator →
         </a>

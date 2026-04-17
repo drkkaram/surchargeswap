@@ -35,17 +35,17 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-[#F5F5F0]">
       <div className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           SurchargeSwap Blog
         </h1>
         <p className="mt-3 text-base leading-relaxed text-[#525252]">
           In-depth guides and updates on the October 2026 RBA surcharge ban.
         </p>
 
-        <div className="mt-8 border border-[#E5E5E5] bg-white p-8 rounded-sm text-center">
-          <p className="text-sm font-semibold text-[#0A0A0A]">
+        <div className="mt-8 border border-[#E5E5E0] bg-white p-8 rounded-md text-center">
+          <p className="text-sm font-semibold text-[#0B1C3D]">
             Articles coming soon
           </p>
           <p className="mt-2 text-sm text-[#525252]">
@@ -54,8 +54,8 @@ export default function BlogPage() {
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <div className="border border-[#E5E5E5] bg-white p-6 rounded-sm">
-            <p className="text-sm font-semibold text-[#0A0A0A]">
+          <div className="border border-[#E5E5E0] bg-white p-6 rounded-md">
+            <p className="text-sm font-semibold text-[#0B1C3D]">
               Read the complete guide
             </p>
             <p className="mt-1 text-sm text-[#525252]">
@@ -64,13 +64,13 @@ export default function BlogPage() {
             </p>
             <Link
               href="/guide"
-              className="mt-3 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+              className="mt-3 inline-block text-sm font-medium text-[#E8651A] hover:text-[#C4541A]"
             >
               Read the complete guide &rarr;
             </Link>
           </div>
-          <div className="border border-[#E5E5E5] bg-white p-6 rounded-sm">
-            <p className="text-sm font-semibold text-[#0A0A0A]">
+          <div className="border border-[#E5E5E0] bg-white p-6 rounded-md">
+            <p className="text-sm font-semibold text-[#0B1C3D]">
               Calculate your impact
             </p>
             <p className="mt-1 text-sm text-[#525252]">
@@ -79,7 +79,7 @@ export default function BlogPage() {
             </p>
             <Link
               href="/"
-              className="mt-3 inline-block rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+              className="mt-3 inline-block rounded-md bg-[#E8651A] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#C4541A]"
             >
               Use the calculator &rarr;
             </Link>

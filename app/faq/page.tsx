@@ -96,13 +96,13 @@ const faqJsonLd = {
 
 export default function FaqPage() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-[#F5F5F0]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <div className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           Surcharge Ban FAQ
         </h1>
         <p className="mt-3 text-base leading-relaxed text-[#525252]">
@@ -113,7 +113,7 @@ export default function FaqPage() {
         <div className="mt-8 space-y-6">
           {faqs.map((faq) => (
             <div key={faq.question}>
-              <h2 className="text-base font-semibold text-[#0A0A0A]">
+              <h2 className="font-serif text-base font-normal text-[#0B1C3D]">
                 {faq.question}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-[#525252]">
@@ -122,7 +122,7 @@ export default function FaqPage() {
               {faq.linkHref && (
                 <Link
                   href={faq.linkHref}
-                  className="mt-1 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+                  className="mt-1 inline-block text-sm font-medium text-[#E8651A] hover:text-[#C4541A]"
                 >
                   {faq.linkText}
                 </Link>
@@ -132,8 +132,8 @@ export default function FaqPage() {
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <div className="border border-[#E5E5E5] bg-white p-6 rounded-sm">
-            <p className="text-sm font-semibold text-[#0A0A0A]">
+          <div className="border border-[#E5E5E0] bg-white p-6 rounded-md">
+            <p className="text-sm font-semibold text-[#0B1C3D]">
               Calculate your impact
             </p>
             <p className="mt-1 text-sm text-[#525252]">
@@ -142,13 +142,13 @@ export default function FaqPage() {
             </p>
             <Link
               href="/"
-              className="mt-3 inline-block rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+              className="mt-3 inline-block rounded-md bg-[#E8651A] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#C4541A]"
             >
               Open calculator &rarr;
             </Link>
           </div>
-          <div className="border border-[#E5E5E5] bg-white p-6 rounded-sm">
-            <p className="text-sm font-semibold text-[#0A0A0A]">
+          <div className="border border-[#E5E5E0] bg-white p-6 rounded-md">
+            <p className="text-sm font-semibold text-[#0B1C3D]">
               Compare processors
             </p>
             <p className="mt-1 text-sm text-[#525252]">
@@ -157,7 +157,7 @@ export default function FaqPage() {
             </p>
             <Link
               href="/compare"
-              className="mt-3 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+              className="mt-3 inline-block text-sm font-medium text-[#E8651A] hover:text-[#C4541A]"
             >
               Compare processors &rarr;
             </Link>

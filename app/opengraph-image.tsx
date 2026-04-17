@@ -10,7 +10,7 @@ export default function Image() {
     (
       <div
         style={{
-          background: '#FAFAFA',
+          background: '#F5F5F0',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -21,8 +21,8 @@ export default function Image() {
           border: '1px solid #E5E5E5',
         }}
       >
-        <div style={{ color: '#0EA5E9', fontSize: '24px', fontWeight: 700 }}>SurchargeSwap</div>
-        <div style={{ color: '#0A0A0A', fontSize: '52px', fontWeight: 800, lineHeight: 1.1, marginTop: '24px', maxWidth: '900px' }}>
+        <div style={{ color: '#E8651A', fontSize: '24px', fontWeight: 700 }}>SurchargeSwap</div>
+        <div style={{ color: '#0B1C3D', fontSize: '52px', fontWeight: 800, lineHeight: 1.1, marginTop: '24px', maxWidth: '900px' }}>
           How much will the surcharge ban cost your business?
         </div>
         <div style={{ color: '#525252', fontSize: '26px', marginTop: '28px', maxWidth: '800px' }}>
@@ -30,11 +30,11 @@ export default function Image() {
         </div>
         <div style={{ display: 'flex', gap: '48px', marginTop: '48px' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ color: '#0A0A0A', fontSize: '32px', fontWeight: 700 }}>436,000</span>
+            <span style={{ color: '#0B1C3D', fontSize: '32px', fontWeight: 700 }}>436,000</span>
             <span style={{ color: '#525252', fontSize: '18px' }}>businesses affected</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ color: '#0A0A0A', fontSize: '32px', fontWeight: 700 }}>$910M</span>
+            <span style={{ color: '#0B1C3D', fontSize: '32px', fontWeight: 700 }}>$910M</span>
             <span style={{ color: '#525252', fontSize: '18px' }}>annual fees eliminated</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>

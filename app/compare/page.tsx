@@ -110,7 +110,7 @@ const processorDetails: Record<
 
 export default function ComparePage() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-[#F5F5F0]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(processorListJsonLd) }}
@@ -119,7 +119,7 @@ export default function ComparePage() {
       <div className="border-b border-amber-300 bg-amber-50">
         <div className="mx-auto max-w-5xl px-6 py-3">
           <p className="text-sm leading-relaxed text-[#525252]">
-            <strong className="text-[#0A0A0A]">Affiliate disclosure:</strong>{" "}
+            <strong className="text-[#0B1C3D]">Affiliate disclosure:</strong>{" "}
             We may earn a referral commission if you switch via our links.
             Rankings are based on lowest cost for average AU hospitality volume.
             Rates verified {RATES_VERIFIED_DATE}.
@@ -128,7 +128,7 @@ export default function ComparePage() {
       </div>
 
       <div className="mx-auto max-w-5xl px-6 py-16">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           Cheapest Payment Processors in Australia 2026
         </h1>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-[#525252]">
@@ -143,7 +143,7 @@ export default function ComparePage() {
           Want to see costs based on your actual revenue?{" "}
           <Link
             href="/"
-            className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+            className="font-medium text-[#E8651A] hover:text-[#C4541A]"
           >
             Use the calculator &rarr;
           </Link>
@@ -156,22 +156,22 @@ export default function ComparePage() {
             return (
               <div
                 key={processor.id}
-                className="border border-[#E5E5E5] bg-white p-6 rounded-sm"
+                className="border border-[#E5E5E0] bg-white p-6 rounded-md"
               >
                 <div className="flex items-start gap-4">
-                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-sm bg-[#FAFAFA] font-mono text-sm font-bold text-[#525252]">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md bg-[#F5F5F0] font-mono text-sm font-bold text-[#525252]">
                     {idx + 1}
                   </span>
                   <div className="flex-1">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <h2 className="text-lg font-semibold text-[#0A0A0A]">
+                      <h2 className="font-serif text-lg font-normal text-[#0B1C3D]">
                         {processor.name}
                       </h2>
                       <span className="text-sm text-[#525252]">
                         {details.rateLabel}
                       </span>
                       {processor.id === "pin-payments" && (
-                        <span className="rounded-sm border border-amber-300 bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700">
+                        <span className="rounded-md border border-amber-300 bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700">
                           Online only — no physical terminal
                         </span>
                       )}
@@ -182,7 +182,7 @@ export default function ComparePage() {
                         <p className="text-xs font-medium uppercase tracking-wider text-[#525252]">
                           Monthly fee
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-[#0A0A0A]">
+                        <p className="mt-1 text-sm font-semibold text-[#0B1C3D]">
                           {details.monthlyFee}
                         </p>
                       </div>
@@ -190,7 +190,7 @@ export default function ComparePage() {
                         <p className="text-xs font-medium uppercase tracking-wider text-[#525252]">
                           Terminal
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-[#0A0A0A]">
+                        <p className="mt-1 text-sm font-semibold text-[#0B1C3D]">
                           {details.terminal}
                         </p>
                       </div>
@@ -198,7 +198,7 @@ export default function ComparePage() {
                         <p className="text-xs font-medium uppercase tracking-wider text-[#525252]">
                           Contract
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-[#0A0A0A]">
+                        <p className="mt-1 text-sm font-semibold text-[#0B1C3D]">
                           {processor.contract}
                         </p>
                       </div>
@@ -206,7 +206,7 @@ export default function ComparePage() {
                         <p className="text-xs font-medium uppercase tracking-wider text-[#525252]">
                           Pricing model
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-[#0A0A0A]">
+                        <p className="mt-1 text-sm font-semibold text-[#0B1C3D]">
                           {processor.pricingModel === "cost-plus"
                             ? "Cost-plus"
                             : "Flat rate"}
@@ -224,13 +224,13 @@ export default function ComparePage() {
                         href={`/out/${processor.id}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+                        className="rounded-md bg-[#E8651A] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#C4541A]"
                       >
                         Switch to {processor.name} &rarr;
                       </a>
                       <Link
                         href="/"
-                        className="rounded-md border border-[#E5E5E5] px-5 py-2 text-sm font-medium text-[#525252] transition-colors hover:border-[#525252]/30"
+                        className="rounded-md border border-[#E5E5E0] px-5 py-2 text-sm font-medium text-[#525252] transition-colors hover:border-[#525252]/30"
                       >
                         Calculate with my numbers
                       </Link>
@@ -242,8 +242,8 @@ export default function ComparePage() {
           })}
         </div>
 
-        <div className="mt-12 border border-[#E5E5E5] bg-white p-6 rounded-sm">
-          <h2 className="text-lg font-semibold text-[#0A0A0A]">
+        <div className="mt-12 border border-[#E5E5E0] bg-white p-6 rounded-md">
+          <h2 className="font-serif text-lg font-normal text-[#0B1C3D]">
             About this comparison
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-[#525252]">

@@ -1,0 +1,32 @@
+app/enforcement-faq/page.tsx:130:              className="mt-3 inline-block rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+app/enforcement-faq/page.tsx:144:              className="mt-3 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/opengraph-image.tsx:24:        <div style={{ color: '#0EA5E9', fontSize: '24px', fontWeight: 700 }}>SurchargeSwap</div>
+app/about/page.tsx:80:              className="mt-3 inline-block rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+app/about/page.tsx:95:              className="mt-3 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+components/ui/card.tsx:15:        "group/card flex flex-col gap-4 overflow-hidden rounded-xl bg-card py-4 text-sm text-card-foreground ring-1 ring-foreground/10 has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl",
+components/ui/card.tsx:28:        "group/card-header @container/card-header grid auto-rows-min items-start gap-1 rounded-t-xl px-4 group-data-[size=sm]/card:px-3 has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-4 group-data-[size=sm]/card:[.border-b]:pb-3",
+app/trades/page.tsx:38:        <div className="mt-4 rounded-sm border border-[#0EA5E9]/30 bg-[#0EA5E9]/5 p-4 text-sm text-[#0369A1]">
+app/faq/page.tsx:125:                  className="mt-1 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/faq/page.tsx:145:              className="mt-3 inline-block rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+app/faq/page.tsx:160:              className="mt-3 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/restaurant/page.tsx:38:        <div className="mt-4 rounded-sm border border-[#0EA5E9]/30 bg-[#0EA5E9]/5 p-4 text-sm text-[#0369A1]">
+app/gym/page.tsx:38:        <div className="mt-4 rounded-sm border border-[#0EA5E9]/30 bg-[#0EA5E9]/5 p-4 text-sm text-[#0369A1]">
+app/compare/page.tsx:146:            className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/compare/page.tsx:227:                        className="rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+components/Calculator.tsx:25:  /** If true, auto-submit the form on mount after populating initialValues */
+components/Calculator.tsx:113:  // and optionally auto-submit so the user sees results immediately.
+app/blog/page.tsx:67:              className="mt-3 inline-block text-sm font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/blog/page.tsx:82:              className="mt-3 inline-block rounded-md bg-[#0EA5E9] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"
+app/guide/page.tsx:86:        <span className="font-mono text-sm font-bold text-[#0EA5E9]">
+app/guide/page.tsx:246:                className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/guide/page.tsx:259:              <div className="border-l-2 border-[#0EA5E9] pl-4">
+app/guide/page.tsx:270:              <div className="border-l-2 border-[#0EA5E9] pl-4">
+app/guide/page.tsx:282:              <div className="border-l-2 border-[#0EA5E9] pl-4">
+app/guide/page.tsx:298:                className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/guide/page.tsx:323:                  className="font-medium text-[#0EA5E9] hover:text-[#0284C7]"
+app/guide/page.tsx:398:                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+app/guide/page.tsx:410:                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+app/guide/page.tsx:426:                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+app/guide/page.tsx:439:                <p className="font-mono text-xs font-bold text-[#0EA5E9]">
+app/guide/page.tsx:481:                  a: <>The ACCC will enforce the ban. Penalties for non-compliance include fines and infringement notices. Consumers can lodge complaints directly with the ACCC. See our <Link href="/enforcement-faq" className="font-medium text-[#0EA5E9] hover:text-[#0284C7]">enforcement FAQ</Link> for details.</>,
+app/guide/page.tsx:532:            className="mt-4 inline-block rounded-md bg-[#0EA5E9] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#0284C7]"

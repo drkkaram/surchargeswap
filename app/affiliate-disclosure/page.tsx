@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function AffiliateDisclosurePage() {
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-[#F5F5F0]">
       <div className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-3xl font-bold tracking-tight text-[#0A0A0A] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-normal tracking-tight text-[#0B1C3D] sm:text-4xl">
           Affiliate Disclosure
         </h1>
         <p className="mt-3 text-sm text-[#525252]">
@@ -25,7 +25,7 @@ export default function AffiliateDisclosurePage() {
           </p>
 
           <div>
-            <h2 className="text-lg font-semibold text-[#0A0A0A]">
+            <h2 className="font-serif text-lg font-normal text-[#0B1C3D]">
               How it works
             </h2>
             <p className="mt-2">
@@ -38,7 +38,7 @@ export default function AffiliateDisclosurePage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-[#0A0A0A]">
+            <h2 className="font-serif text-lg font-normal text-[#0B1C3D]">
               How rankings are determined
             </h2>
             <p className="mt-2">
@@ -51,7 +51,7 @@ export default function AffiliateDisclosurePage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-[#0A0A0A]">
+            <h2 className="font-serif text-lg font-normal text-[#0B1C3D]">
               Rate verification
             </h2>
             <p className="mt-2">
@@ -64,7 +64,7 @@ export default function AffiliateDisclosurePage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-[#0A0A0A]">
+            <h2 className="font-serif text-lg font-normal text-[#0B1C3D]">
               Our commitment
             </h2>
             <p className="mt-2">
@@ -78,13 +78,13 @@ export default function AffiliateDisclosurePage() {
         </div>
       </div>
 
-      <div className="mt-12 rounded-lg border border-[#E5E5E5] bg-[#FAFAFA] p-6 text-center">
+      <div className="mt-12 rounded-lg border border-[#E5E5E0] bg-[#F5F5F0] p-6 text-center">
         <p className="text-sm text-[#525252]">
           Ready to calculate your surcharge ban impact?
         </p>
         <a
           href="/"
-          className="mt-3 inline-block rounded-md bg-[#0A0A0A] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#525252]"
+          className="mt-3 inline-block rounded-md bg-[#0B1C3D] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#525252]"
         >
           Use the free calculator →
         </a>

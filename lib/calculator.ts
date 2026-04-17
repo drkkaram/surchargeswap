@@ -134,6 +134,9 @@ export function calculateResult(inputs: CalculatorInputs): CalculatorResult {
   const annualImpact = netMonthlyImpact * 12;
 
   const amexRevenue = inputs.monthlyCardRevenue * (inputs.amexPct / 100);
+  // Amex remains outside the October 2026 RBA surcharge ban.
+  // This recovery figure is informational only and assumes your merchant agreement still permits
+  // cost-based Amex surcharging after the Visa/Mastercard/eftpos ban takes effect.
   const amexSurchargeRecovery =
     amexRevenue * (inputs.currentSurchargePct / 100);
 

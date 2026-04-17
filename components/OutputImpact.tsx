@@ -20,18 +20,24 @@ export function OutputImpact({
     : result.netMonthlyImpact;
   const totalAnnual = totalMonthly * 12;
 
+  // Show the Amex-callout whenever the business has ANY Amex volume (not an
+  // arbitrary >5% threshold) so businesses with small but non-zero Amex share
+  // still see the recovery opportunity.
+  const hasAmexRevenue = result.inputs.amexPct > 0;
+  const hasBnplRevenue = result.bnplRevenue > 0;
+
   return (
     <div className="space-y-6">
       {/* Hero number - dominant, unmissable */}
-      <div className="text-center">
-        <p className="text-xs font-medium uppercase tracking-widest text-[#374151]">
+      <div className="text-center" aria-live="polite">
+        <p className="text-xs font-medium uppercase tracking-widest text-[#4A5568]">
           Your monthly impact{includeBnpl ? " (incl. BNPL)" : ""}
         </p>
         <p className="mt-2 font-mono text-5xl font-bold tracking-tight text-[#DC2626] sm:text-6xl">
           -{formatCurrency(totalMonthly)}
           <span className="text-2xl sm:text-3xl">/mo</span>
         </p>
-        <p className="mt-2 text-lg text-[#374151] sm:text-xl">
+        <p className="mt-2 text-lg text-[#4A5568] sm:text-xl">
           That&apos;s{" "}
           <span className="font-mono font-semibold text-[#DC2626]">
             -{formatCurrency(totalAnnual)}
@@ -40,30 +46,45 @@ export function OutputImpact({
         </p>
         {totalMonthly === 0 && (
           <p className="mt-3 text-sm font-medium text-[#16A34A]">
-            ✓ No surcharge revenue to lose: your card fees are already fully absorbed.
+            No surcharge revenue to lose: your card fees are already fully absorbed.
           </p>
         )}
       </div>
 
+      {/* Amex callout — positive framing: Amex IS still permitted */}
+      {hasAmexRevenue && (
+        <div
+          className="mt-3 rounded-md border border-[#E8651A]/30 bg-[#FFF8F4] p-4 text-sm text-[#0B1C3D]"
+          role="note"
+          aria-label="Amex surcharging still permitted"
+        >
+          <p className="font-semibold text-[#E8651A] mb-1">Amex revenue detected — you can still surcharge it.</p>
+          <p className="text-sm text-[#4A5568]">
+            American Express is not covered by the October 2026 ban. You can continue surcharging Amex at your actual cost of acceptance. Your recoverable Amex surcharge:{" "}
+            <span className="font-mono font-semibold text-[#16A34A]">{formatCurrency(result.amexSurchargeRecovery)}/mo</span>.
+          </p>
+        </div>
+      )}
+
       {/* Breakdown */}
-      <div className="space-y-3 rounded-xl bg-slate-50 p-5 border-0">
-        <p className="text-xs font-medium uppercase tracking-widest text-[#374151]">
+      <div className="space-y-3 rounded-md bg-[#F5F5F0] border border-[#E5E5E0] p-5">
+        <p className="text-xs font-medium uppercase tracking-widest text-[#4A5568]">
           Breakdown
         </p>
         <div className="flex items-baseline justify-between">
-          <p className="text-sm text-[#374151]">
+          <p className="text-sm text-[#4A5568]">
             Surcharge revenue you&apos;ll stop collecting
           </p>
           <p className="font-mono text-base font-semibold text-[#DC2626]">
             -{formatCurrency(result.surchargeRevenueLost)}
           </p>
         </div>
-        <div className="mt-3 border-t border-[#E2E8F0] pt-3">
+        <div className="mt-3 border-t border-[#E5E5E0] pt-3">
           <p className="mb-2 text-xs font-medium uppercase tracking-widest text-[#6B7280]">
             Context
           </p>
           <div className="flex items-baseline justify-between">
-            <p className="text-sm text-[#374151]">
+            <p className="text-sm text-[#4A5568]">
               MSF you continue paying (not new, was offset by surcharge)
             </p>
             <p className="font-mono text-base font-semibold text-[#6B7280]">
@@ -77,7 +98,7 @@ export function OutputImpact({
 
         {includeBnpl && (
           <div className="flex items-baseline justify-between">
-            <p className="text-sm text-[#374151]">BNPL MSF cost (ongoing)</p>
+            <p className="text-sm text-[#4A5568]">BNPL MSF cost (ongoing)</p>
             <p className="font-mono text-base font-semibold text-[#DC2626]">
               -{formatCurrency(result.bnplMsfCost)}
             </p>
@@ -85,53 +106,36 @@ export function OutputImpact({
         )}
       </div>
 
-      <p className="text-xs italic text-[#374151]">
+      <p className="text-xs italic text-[#4A5568]">
         Estimates based on your inputs. Actual impact depends on your merchant
         agreement. Verify with your processor.
       </p>
 
-      <div className="rounded-xl bg-slate-50 p-5 border-0">
-        <p className="text-sm font-semibold text-[#0F172A]">
-          Amex surcharging: still permitted
-        </p>
-        <p className="mt-1 text-sm leading-relaxed text-[#374151]">
-          American Express operates as a three-party scheme and is not
-          designated by the RBA under the surcharge ban. The October 2026 ban
-          does not apply to Amex. You can continue surcharging Amex
-          transactions regardless of your business size.{" "}
-          <span className="text-xs text-[#6B7280]">
-            (As confirmed in the RBA Conclusions Paper, March 2026. Check{" "}
+      {!hasAmexRevenue && (
+        <div className="rounded-md bg-[#F5F5F0] border border-[#E5E5E0] p-5">
+          <p className="text-sm font-semibold text-[#0B1C3D]">
+            Amex surcharging: still permitted
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-[#4A5568]">
+            American Express is a three-party scheme, not covered by the October 2026 ban. You can continue surcharging Amex at your actual cost.{" "}
             <a
               href="https://www.rba.gov.au"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline"
+              className="underline text-[#E8651A] hover:text-[#C4541A]"
             >
-              rba.gov.au
-            </a>{" "}
-            for updates.)
-          </span>
-        </p>
-        <p className="mt-2 text-sm leading-relaxed text-[#374151]">
-          Ensure your POS supports selective surcharging by card network. Your
-          recoverable Amex surcharge:{" "}
-          <span className="font-mono font-semibold text-[#16A34A]">
-            {formatCurrency(result.amexSurchargeRecovery)}
-          </span>
-          /mo (based on{" "}
-          <span className="font-mono font-semibold text-[#0F172A]">
-            {formatCurrency(result.amexRevenue)}
-          </span>
-          /mo Amex revenue).
-        </p>
-      </div>
+              RBA Conclusions Paper, March 2026
+            </a>.
+          </p>
+        </div>
+      )}
 
       {result.inputs.monthlyCardRevenue >= 500000 && (
-        <div className="rounded-xl border border-[#A855F7]/30 bg-[#A855F7]/5 p-5">
-          <p className="text-sm font-semibold text-[#7C3AED]">
+        <div className="rounded-md border border-[#E8651A]/30 bg-[#FFF8F4] p-5">
+          <p className="text-sm font-semibold text-[#E8651A]">
             High-volume business? Let us handle the switch.
           </p>
-          <p className="mt-1 text-sm text-[#374151]">
+          <p className="mt-1 text-sm text-[#4A5568]">
             Running $500K+/month in card revenue means a processor switch is
             worth thousands per year. We offer a $299 concierge service: we
             handle the application, merchant setup, and switchover timeline for
@@ -139,21 +143,24 @@ export function OutputImpact({
           </p>
           <a
             href="mailto:concierge@surchargeswap.com.au?subject=Concierge%20Switch%20Enquiry"
-            className="mt-3 inline-block rounded-md bg-[#7C3AED] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#6D28D9]"
+            className="mt-3 inline-block rounded-md bg-[#E8651A] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#C4541A]"
           >
             Enquire about concierge switching
           </a>
         </div>
       )}
 
-      <hr className="border-[#E2E8F0]" />
-
-      <BNPLToggle
-        bnplRevenue={result.bnplRevenue}
-        bnplMsfCost={result.bnplMsfCost}
-        includeBnpl={includeBnpl}
-        onToggle={onToggleBnpl}
-      />
+      {hasBnplRevenue && (
+        <>
+          <hr className="border-[#E5E5E0]" />
+          <BNPLToggle
+            bnplRevenue={result.bnplRevenue}
+            bnplMsfCost={result.bnplMsfCost}
+            includeBnpl={includeBnpl}
+            onToggle={onToggleBnpl}
+          />
+        </>
+      )}
     </div>
   );
 }
